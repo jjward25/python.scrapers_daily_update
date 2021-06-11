@@ -14,11 +14,11 @@ two_ago_word = two_ago.strftime("%B %d, %Y")
 #print(today_word)
 #print(yesterday_word)
 #print(two_ago_word)
-date_list = [today_word,yesterday_word,two_ago_word,three_ago_word]
+date_list = [today_word,yesterday_word,two_ago_word]
 
 ## Headers is used because a User-Agemt was required by the website
 headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46'}
-link = "https://www.ed.gov/news/press-releases"
+link = ""
 page = requests.get(link, headers=headers)
 soup = BeautifulSoup(page.content, 'lxml')
 
@@ -33,9 +33,9 @@ for item in soup.find_all('li'):
     notes = item.find()
     idate = item.find()
 
-    obj_data = {'source':'Ed Dept', 'title': 'title', 'link': 'ilink', 'Notes': '', 'date': 'idate'}
+    obj_data = {'source':' Dept', 'title': 'title', 'link': 'ilink', 'Notes': '', 'date': 'idate'}
     object_list.append(obj_data)
 
 ## Final dataframe is defined
-state_dept_df = pd.DataFrame(object_list)
-print(state_dept_df)
+_dept_df = pd.DataFrame(object_list)
+print(_dept_df)
