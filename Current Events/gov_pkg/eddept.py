@@ -1,44 +1,41 @@
 from bs4 import BeautifulSoup  ## BeautifulSoup is a web parsing package to help pull specific HTML components
 import urllib.request  ## to get a access to a URL and its content
 import pandas as pd 
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
 import requests 
 
 ## Date List created with string values for the last 4 days to only pull opinions from that range.
 today = date.today()
 yesterday = date.today() - timedelta(1)
 two_ago = date.today() - timedelta(2)
-three_ago = date.today() - timedelta(3)
 today_word = today.strftime("%B %d, %Y")
 yesterday_word = yesterday.strftime("%B %d, %Y")
 two_ago_word = two_ago.strftime("%B %d, %Y")
-three_ago_word = three_ago.strftime("%B %d, %Y")
 #print(today_word)
 #print(yesterday_word)
-#print(two_ago_word)
-#print(three_ago_word)
-date_list = [today_word,yesterday_word,two_ago_word,three_ago_word]
+date_list = [today_word,yesterday_word,two_ago_word]
 
 ## Headers is used because a User-Agemt was required by the website
 headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46'}
-link = "https://www.supremecourt.gov/"
+link = "https://www.ed.gov/news/press-releases"
 page = requests.get(link, headers=headers)
 soup = BeautifulSoup(page.content, 'lxml')
 
 ## Actual HTML pull
 object_list = []
-for item in soup.find_all(id='opinionsbyday'):
+for item in soup.find_all(class_='views-row'):
 
-    if item.find('span').get_text() in date_list:
+    ## Transforms the time tag from a string to date format, then into the right date format and checks to see if it's in the date_list object
+    if datetime.strptime(item.find_all('span')[0].get_text(), '%B %d, %Y').strftime("%B %d, %Y") in date_list:
 
-        title = item.find(class_='casenamerow').get_text().strip('\n')
+        title = item.find_all(class_='views-field')[1].get_text()
         ilink = item.find('a').get('href')
-        notes = item.find(class_='casedetail').get_text().strip('\n')
-        idate = item.find('span').get_text()
+        notes = item.find(class_="views-field-body").get_text()
+        idate = item.find_all('span')[0].get_text()
 
-        obj_data = {'source':'Supreme Court', 'title': title, 'link': ilink, 'Notes': notes, 'date': idate}
+        obj_data = {'source':'Ed Dept', 'title': title, 'link': ilink, 'Notes': notes, 'date': idate}
         object_list.append(obj_data)
 
 ## Final dataframe is defined
-supreme_court_df = pd.DataFrame(object_list)
-print(supreme_court_df)
+ed_dept_df = pd.DataFrame(object_list)
+print(ed_dept_df)
