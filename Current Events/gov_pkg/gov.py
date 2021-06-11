@@ -13,6 +13,10 @@ from cabinet.ed import ed_dept_df
 from cabinet.treasury import treasury_dept_df
 from cabinet.defense import defense_dept_df
 from cabinet.justice import justice_dept_df
+from cabinet.interior import interior_dept_df
+from cabinet.usda import agriculture_dept_df
+from cabinet.commerce import commerce_dept_df
+from cabinet.labor import labor_dept_df
 
 combined_df = pd.DataFrame()
 combined_df = combined_df.append(white_house_df)
@@ -22,6 +26,10 @@ combined_df = combined_df.append(ed_dept_df)
 combined_df = combined_df.append(treasury_dept_df)
 combined_df = combined_df.append(defense_dept_df)
 combined_df = combined_df.append(justice_dept_df)
+combined_df = combined_df.append(interior_dept_df)
+combined_df = combined_df.append(agriculture_dept_df)
+combined_df = combined_df.append(commerce_dept_df)
+combined_df = combined_df.append(labor_dept_df)
 #print(combined_df)
 
 

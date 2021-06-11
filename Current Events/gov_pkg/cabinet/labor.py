@@ -18,24 +18,24 @@ date_list = [today_word,yesterday_word,two_ago_word]
 
 ## Headers is used because a User-Agemt was required by the website
 headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46'}
-link = ""
+link = "https://www.dol.gov/newsroom/releases"
 page = requests.get(link, headers=headers)
 soup = BeautifulSoup(page.content, 'lxml')
 
 ## Actual HTML pull
 object_list = []
-for item in soup.find_all('li'):
+for item in soup.find_all(class_='left-teaser-text'):
 
-    #if item.find('span').get_text() in date_list:
+    if item.find('p').get_text() in date_list:
 
-    title = item.find()
-    ilink = item.find()
-    notes = item.find()
-    idate = item.find()
+        title = item.find('a').find('span').get_text().lstrip('<bound method Tag.get_text of <span>')
+        ilink = "https://www.dol.gov" + item.find('a').get('href').lstrip(' ')
+        notes = item.find(class_='field--type-text-with-summary').get_text()
+        idate = item.find('p').get_text()
 
-    obj_data = {'source':' Dept', 'title': 'title', 'link': 'ilink', 'Notes': 'notes', 'date': 'idate'}
-    object_list.append(obj_data)
+        obj_data = {'source':'Labor Dept', 'title': title, 'link': ilink, 'Notes': notes, 'date': idate}
+        object_list.append(obj_data)
 
 ## Final dataframe is defined
-_dept_df = pd.DataFrame(object_list)
-print(_dept_df)
+labor_dept_df = pd.DataFrame(object_list)
+print(labor_dept_df)

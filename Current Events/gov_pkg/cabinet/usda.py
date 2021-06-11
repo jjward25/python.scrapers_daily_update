@@ -18,29 +18,24 @@ date_list = [today_word,yesterday_word,two_ago_word]
 
 ## Headers is used because a User-Agemt was required by the website
 headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46'}
-link = "https://www.justice.gov/"
+link = "https://www.usda.gov/media/press-releases"
 page = requests.get(link, headers=headers)
 soup = BeautifulSoup(page.content, 'lxml')
 
 ## Actual HTML pull
 object_list = []
+for item in soup.find_all(class_='news-releases-item'):
 
-##Pulls contents from different primary elements and uses a try and except format to print only relevant articles
-for item in range(10):
-    try:
-        if datetime.strptime(soup.find_all(class_='views-row')[item].find(class_='date-display-single').get_text(), '%A, %B %d, %Y').strftime("%B %d, %Y") in date_list:
+    if datetime.strptime(item.find(class_='news-release-date').get_text(), '%b %d, %Y').strftime("%B %d, %Y") in date_list:
 
-            idate = soup.find_all(class_='views-row')[item].find(class_='date-display-single').get_text()
-            title = soup.find_all(class_='views-row')[item].find('a').get_text()
-            ilink = "https://www.justice.gov" + soup.find_all(class_='views-row')[item].find('a').get('href')
+        title = item.find('a').get_text()
+        ilink = item.find('a').get('href')
+        notes = item.find()
+        idate = item.find(class_='news-release-date').get_text()
 
-            obj_data = {'source':'Justice Dept', 'title': title, 'link': ilink, 'Notes': 'notes', 'date': idate}
-            object_list.append(obj_data)
-        
-    except: 
-        pass
+        obj_data = {'source':'Agriculture Dept', 'title': title, 'link': ilink, 'Notes': '', 'date': idate}
+        object_list.append(obj_data)
 
-## Final dataframe is defined with duplicates removed
-df = pd.DataFrame(object_list)
-justice_dept_df = df.drop_duplicates()
-print(justice_dept_df)
+## Final dataframe is defined
+agriculture_dept_df = pd.DataFrame(object_list)
+print(agriculture_dept_df)
