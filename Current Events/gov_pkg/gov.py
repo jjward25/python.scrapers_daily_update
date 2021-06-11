@@ -17,6 +17,7 @@ from cabinet.interior import interior_dept_df
 from cabinet.usda import agriculture_dept_df
 from cabinet.commerce import commerce_dept_df
 from cabinet.labor import labor_dept_df
+from cabinet.hhs import hhs_dept_df
 
 combined_df = pd.DataFrame()
 combined_df = combined_df.append(white_house_df)
@@ -30,6 +31,7 @@ combined_df = combined_df.append(interior_dept_df)
 combined_df = combined_df.append(agriculture_dept_df)
 combined_df = combined_df.append(commerce_dept_df)
 combined_df = combined_df.append(labor_dept_df)
+combined_df = combined_df.append(hhs_dept_df)
 #print(combined_df)
 
 
