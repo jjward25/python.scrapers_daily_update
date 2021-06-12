@@ -7,6 +7,7 @@ import pandas as pd
 # Modules
 from other.whitehouse import white_house_df
 from other.supremecourt import supreme_court_df
+from other.congress import congress_df
 from other.irs import irs_df
 
 from cabinet.agriculture import agriculture_dept_df
@@ -29,6 +30,7 @@ from cabinet.va import va_dept_df
 combined_df = pd.DataFrame()
 combined_df = combined_df.append(white_house_df)
 combined_df = combined_df.append(supreme_court_df)
+combined_df = combined_df.append(congress_df)
 combined_df = combined_df.append(irs_df)
 
 combined_df = combined_df.append(agriculture_dept_df)
