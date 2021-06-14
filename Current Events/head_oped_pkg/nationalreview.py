@@ -36,5 +36,5 @@ for item in soup.find_all(class_='post-list-article__text'):
     object_list.append(obj_data)
 
 ## Final dataframe is defined
-national_review_df = pd.DataFrame(object_list).head(10)
+national_review_df = pd.DataFrame(object_list).head(8)
 print(national_review_df)
