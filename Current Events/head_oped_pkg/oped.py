@@ -6,10 +6,12 @@ import pandas as pd
 
 # Modules
 from sites.nationalreview import national_review_df
+from sites.politico import politico_df
 
 
 combined_df = pd.DataFrame()
 combined_df = combined_df.append(national_review_df)
+combined_df = combined_df.append(politico_df)
 
 #print(combined_df)
 
