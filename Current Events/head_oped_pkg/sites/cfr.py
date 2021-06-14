@@ -37,9 +37,9 @@ for item in soup.find_all('article'):
     #notes = item.find(class_='summary f-serif ls-0').get_text()
     #idate = item.find(class_='publication-date').get_text()
 
-    obj_data = {'source':'Foreign Affairs', 'title': title, 'link': ilink, 'Notes': 'notes', 'date': 'idate'}
+    obj_data = {'source':'CFR', 'title': title, 'link': ilink, 'Notes': 'notes', 'date': 'idate'}
     object_list.append(obj_data)
 
 ## Final dataframe is defined
-foreign_affairs_df = pd.DataFrame(object_list).head(8)
-print(foreign_affairs_df)
+cfr_df = pd.DataFrame(object_list).head(8)
+print(cfr_df)

@@ -7,12 +7,12 @@ import pandas as pd
 # Modules
 from sites.nationalreview import national_review_df
 from sites.politico import politico_df
-from sites.foreignaffairs import foreign_affairs_df
+from sites.cfr import cfr_df
 
 combined_df = pd.DataFrame()
 combined_df = combined_df.append(national_review_df)
 combined_df = combined_df.append(politico_df)
-combined_df = combined_df.append(foreign_affairs_df)
+combined_df = combined_df.append(cfr_df)
 
 #print(combined_df)
 
