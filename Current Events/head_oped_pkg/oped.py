@@ -5,7 +5,7 @@ from datetime import date
 import pandas as pd
 
 # Modules
-from nationalreview import national_review_df
+from sites.nationalreview import national_review_df
 
 
 combined_df = pd.DataFrame()
@@ -16,4 +16,4 @@ combined_df = combined_df.append(national_review_df)
 
 oped_df = combined_df
 print(oped_df)
-oped_df.to_csv(r'C:\Users\Josep\OneDrive\Desktop\Coding\CA Scrapers\Current Events\oped_pkg\oped_data.csv')
+oped_df.to_csv(r'C:\Users\Josep\OneDrive\Desktop\Coding\CA Scrapers\Current Events\head_oped_pkg\oped_data.csv')
