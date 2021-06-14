@@ -27,7 +27,7 @@ object_list = []
 for item in range(0,3):
 
     title = soup.find(class_='col-md-12').find_all('a')[item].get_text()
-    ilink = soup.find(class_='col-md-12').find_all('a')[item].get('href')
+    ilink = "https://www.hud.gov" + soup.find(class_='col-md-12').find_all('a')[item].get('href')
     #notes = item.find()
     idate = soup.find(class_='col-md-12').find_all('p')[item].get_text()
 

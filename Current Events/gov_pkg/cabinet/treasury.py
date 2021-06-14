@@ -18,7 +18,7 @@ for item in range(4):
 
     idate = soup.find_all(class_='date-format')[item].find('time').get_text()
     title = soup.find_all(class_='featured-stories__headline')[item].find('a').get_text()
-    ilink = soup.find_all(class_='featured-stories__headline')[item].find('a').get('href')
+    ilink = "https://home.treasury.gov" + soup.find_all(class_='featured-stories__headline')[item].find('a').get('href')
 
     obj_data = {'source':'Treasury Dept', 'title': title, 'link': ilink, 'Notes': 'notes', 'date': idate}
     object_list.append(obj_data)
