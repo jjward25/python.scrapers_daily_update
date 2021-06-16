@@ -19,23 +19,23 @@ date_list = [today_word,yesterday_word,two_ago_word]
 
 ## Headers is used because a User-Agemt was required by the website
 headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46'}
-link = "https://www.foreignaffairs.com/search/"
+link = "https://apnews.com/hub/ap-top-news"
 page = requests.get(link, headers=headers)
 soup = BeautifulSoup(page.content, 'lxml')
 
-test = soup.find_all('article')
-#print(test)
+test = soup.find_all(class_='CardHeadline')
+print(test)
 
 ## Actual HTML pull
 object_list = []
-for item in soup.find_all('article'):
+for item in soup.find_all('CardHeadline'):
     #if item.find('span').get_text() in date_list:
     title = item.find('a').get_text()
     ilink = item.find('a').get('href')
     #notes = item.find(class_='summary f-serif ls-0').get_text()
     #idate = item.find(class_='publication-date').get_text()
 
-    obj_data = {'source':'CFR', 'title': title, 'link': ilink, 'Notes': 'notes', 'date': 'idate'}
+    obj_data = {'source':'AP News', 'title': title, 'link': ilink, 'Notes': 'notes', 'date': 'idate'}
     object_list.append(obj_data)
 
 ## Final dataframe is defined
