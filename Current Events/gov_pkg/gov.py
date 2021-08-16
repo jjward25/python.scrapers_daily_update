@@ -26,13 +26,11 @@ from cabinet.transportation import transportation_dept_df
 from cabinet.treasury import treasury_dept_df
 from cabinet.va import va_dept_df
 
-
 combined_df = pd.DataFrame()
 combined_df = combined_df.append(white_house_df)
 combined_df = combined_df.append(supreme_court_df)
 combined_df = combined_df.append(congress_df)
 combined_df = combined_df.append(irs_df)
-
 combined_df = combined_df.append(agriculture_dept_df)
 combined_df = combined_df.append(commerce_dept_df)
 combined_df = combined_df.append(defense_dept_df)
@@ -50,7 +48,6 @@ combined_df = combined_df.append(treasury_dept_df)
 combined_df = combined_df.append(va_dept_df)
 #print(combined_df)
 
-
 gov_df = combined_df
 print(gov_df)
-gov_df.to_csv(r'C:\Users\Josep\OneDrive\Desktop\Coding\CA Scrapers\Current Events\gov_pkg\gov_data.csv')
+gov_df.to_csv(r'C:\Users\Josep\OneDrive\Desktop\Coding\python-ca_scrapers\Current Events\gov_pkg\gov_data.csv')
