@@ -23,7 +23,7 @@ page = requests.get(link, headers=headers)
 soup = BeautifulSoup(page.content, 'lxml')
 
 ## Actual HTML pull
-object_list = []
+object_list = [] 
 for item in soup.find_all(class_="lside"):
 
     #if item.find('span').get_text() in date_list:
