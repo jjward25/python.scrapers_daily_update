@@ -4,35 +4,37 @@ import pandas as pd
 from datetime import date, timedelta, datetime
 import requests 
 
-## Date List created with string values for the last 4 days to only pull opinions from that range.
+## Date List created with string values for the last 3 days to only pull articles from that range.
 today = date.today()
-yesterday = date.today() - timedelta(1)
-two_ago = date.today() - timedelta(2)
-today_word = today.strftime("%B %d, %Y")
-yesterday_word = yesterday.strftime("%B %d, %Y")
-two_ago_word = two_ago.strftime("%B %d, %Y")
-today_link = today.strftime("%Y/%m/%d/")
+#yesterday = date.today() - timedelta(1)
+#two_ago = date.today() - timedelta(2)
+#today_word = today.strftime("%B %d, %Y")
+#yesterday_word = yesterday.strftime("%B %d, %Y")
+#two_ago_word = two_ago.strftime("%B %d, %Y")
+#today_link = today.strftime("%Y/%m/%d/")
+year = today.strftime("%Y")
+month = today.strftime("%m")
 #print(today_word)
 #print(yesterday_word)
 #print(two_ago_word)
-date_list = [today_word,yesterday_word,two_ago_word]
+#date_list = [today_word,yesterday_word,two_ago_word]
 
 ## Headers is used because a User-Agemt was required by the website
 headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46'}
-link = "https://blogs.va.gov/VAntage/date/" + today_link
+link = "https://blogs.va.gov/VAntage/date/"+year+"/"+month+"/"
 page = requests.get(link, headers=headers)
 soup = BeautifulSoup(page.content, 'lxml')
-
+print(soup)
 ## Actual HTML pull
 object_list = []
 for item in soup.find_all('article'):
 
     #if item.find('span').get_text() in date_list:
 
-    title = item.find('h4').find('a').get_text()
+    title = item.find('h2').find('a').get_text()
     ilink = item.find('a').get('href')
     notes = item.find()
-    idate = datetime.strptime(item.find(class_='published').get_text(), '%A, %B %d, %Y %I:%M %p').strftime("%B %d, %Y")
+    idate = item.find(class_='updated rich-snippet-hidden').get_text()
     
     
 

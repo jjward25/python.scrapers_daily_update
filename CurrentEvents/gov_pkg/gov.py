@@ -50,4 +50,4 @@ combined_df = combined_df.append(va_dept_df)
 
 gov_df = combined_df
 print(gov_df)
-gov_df.to_csv(r'C:\Users\Josep\OneDrive\Desktop\Coding\python-ca_scrapers\Current Events\gov_pkg\gov_data.csv')
+gov_df.to_csv(r'gov_data.csv',index=False)
