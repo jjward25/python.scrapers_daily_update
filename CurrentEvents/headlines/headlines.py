@@ -47,4 +47,4 @@ combined_df = combined_df.append(reuters_world_df)
 
 headlines_df = combined_df
 #print(headlines_df)
-headlines_df.to_csv(r'headlines.csv')
+headlines_df.to_csv(r'headlines.csv', index=False)
