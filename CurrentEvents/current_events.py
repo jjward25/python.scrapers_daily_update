@@ -6,12 +6,11 @@ import pandas as pd
 
 # Modules
 from gov_pkg.gov import gov_df
-from oped_pkg.oped import oped_df
-
+from headlines.headlines import headlines_df
 
 combined_df = pd.DataFrame()
 combined_df = combined_df.append(gov_df)
-combined_df = combined_df.append(oped_df)
+combined_df = combined_df.append(headlines_df)
 #print(combined_df)
 
 current_events_df = combined_df
