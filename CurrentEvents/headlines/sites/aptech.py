@@ -11,14 +11,17 @@ page = requests.get(link, headers=headers)
 soup = BeautifulSoup(page.content, 'lxml')
 
 test = soup.find_all(class_='CardHeadline')[0]
-print(test)
+#print(test)
+
+print(soup.find_all(class_='CardHeadline')[0])
+
 
 ## Actual HTML pull
 object_list = []
 for item in soup.find_all(class_='CardHeadline'):
-    #if item.find('span').get_text() in date_list:
-    title = item.find('a').get_text()
-    ilink = "https://www.apnews.com" + str(item.find('a').get('href'))
+    
+    title = item.get_text()
+    ilink = "https://www.apnews.com" + str(item.find(class_='Component-headline-0-2-106').get('href'))
     #notes = item.find(class_='summary f-serif ls-0').get_text()
     #idate = item.find(class_='publication-date').get_text()
 
