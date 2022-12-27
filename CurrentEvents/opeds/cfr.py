@@ -59,5 +59,7 @@ def cfr_scrape():
         cfr_df = pd.DataFrame(obj_list)
         return cfr_df
     ## Final Return Statement
+    print(cfr_df)
     return cfr_df
 
+cfr_scrape()

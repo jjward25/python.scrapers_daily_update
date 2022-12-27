@@ -1,10 +1,9 @@
 from bs4 import BeautifulSoup  ## BeautifulSoup is a web parsing package to help pull specific HTML components
-import urllib.request  ## to get a access to a URL and its content
 import pandas as pd 
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
 import requests 
 
-def state_scrape():
+def ed_scrape():
     ## Date List created with string values for the last 4 days to only pull opinions from that range.  
     ## General templates to pull from, not all are always used.
     today = date.today()
@@ -20,7 +19,7 @@ def state_scrape():
 
     ## Headers is used because a User-Agent was required by the website
     headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46'}
-    link = "https://www.state.gov/press-releases/"
+    link = "https://www.ed.gov/news/press-releases"
 
     ##** Error Handling for bad URL
     try:
@@ -28,9 +27,9 @@ def state_scrape():
         page.raise_for_status()
     except:
         print('URL Broken')
-        obj_list = [{'type':'Government','source':'State Dept', 'title': 'Link Broken', 'link': '', 'Notes': '', 'date': ''}]
-        state_dept_df = pd.DataFrame(obj_list)
-        return state_dept_df
+        obj_list = [{'type':'Government','source':'Education Dept', 'title': 'Link Broken', 'link': '', 'Notes': '', 'date': ''}]
+        ed_dept_df = pd.DataFrame(obj_list)
+        return ed_dept_df
         
     ## Parse the webpage
     page = requests.get(link, headers=headers)
@@ -38,36 +37,30 @@ def state_scrape():
 
     ## Actual HTML pull
     object_list = []
-    for item in soup.find_all(class_='collection-result'):
+    for item in soup.find_all(class_='views-row'):
 
-        if item.find('span',dir="ltr").get_text() in date_list:
-            title = item.find('a').get_text().strip('\n\n\t\t')
+        ## Transforms the time tag from a string to date format, then into the right date format and checks to see if it's in the date_list object
+        if datetime.strptime(item.find_all('span')[0].get_text(), '%B %d, %Y').strftime("%B %d, %Y") in date_list:
+
+            title = item.find_all(class_='views-field')[1].get_text()
             ilink = item.find('a').get('href')
-            notes = item.find()
-            idate = item.find('span',dir="ltr").get_text()
-            obj_data = {'type':'Government','source':'State Dept', 'title': title, 'link': ilink, 'Notes': '', 'date': idate}
+            notes = item.find(class_="views-field-body").get_text()
+            idate = item.find_all('span')[0].get_text()
+
+            obj_data = {'type':'Government','source':'Ed Dept', 'title': title, 'link': ilink, 'Notes': notes, 'date': idate}
             object_list.append(obj_data)
 
-    if len(object_list) == 0:
-        item = soup.find(class_='collection-result')
-        title = item.find('a').get_text().strip('\n\n\t\t')
-        ilink = item.find('a').get('href')
-        notes = item.find()
-        idate = item.find('span',dir="ltr").get_text()
-        obj_data = {'type':'Government','source':'State Dept', 'title': title, 'link': ilink, 'Notes': '', 'date': idate}
-        object_list.append(obj_data)
-
     ## Final dataframe is defined
-    state_dept_df = pd.DataFrame(object_list)
+    ed_dept_df = pd.DataFrame(object_list)
 
     ##** Error Handling for empty result
-    if len(state_dept_df) == 0:
+    if len(ed_dept_df) == 0:
         print('No Result')
-        obj_list = [{'type':'Government','source':'State Dept', 'title': 'Tag Not Found', 'link': '', 'Notes': '', 'date': ''}]
-        state_dept_df = pd.DataFrame(obj_list)
-        return state_dept_df
-    ## Final Return Statement
-    print(state_dept_df)
-    return state_dept_df
+        obj_list = [{'type':'Government','source':'Education Dept', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
+        ed_dept_df = pd.DataFrame(obj_list)
+        return ed_dept_df
 
-state_scrape()
+    print(ed_dept_df)
+    return ed_dept_df
+    
+ed_scrape()

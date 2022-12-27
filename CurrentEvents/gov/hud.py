@@ -11,9 +11,12 @@ def hud_scrape():
     yesterday = date.today() - timedelta(1)
     two_ago = date.today() - timedelta(2)
     today_word = today.strftime("%B %d, %Y")
+    today_word_single_digit_day = today.strftime("%B %d, %Y").replace(" 0", " ")
     yesterday_word = yesterday.strftime("%B %d, %Y")
+    yesterday_word_single_digit_day = yesterday.strftime("%B %d, %Y").replace(" 0", " ")
     two_ago_word = two_ago.strftime("%B %d, %Y")
-    date_list = [today_word,yesterday_word,two_ago_word]
+    two_ago_word_single_digit_day = two_ago.strftime("%B %d, %Y").replace(" 0", " ")
+    date_list = [today_word,yesterday_word,two_ago_word,today_word_single_digit_day,yesterday_word_single_digit_day,two_ago_word_single_digit_day]
 
     ## Headers is used because a User-Agent was required by the website
     headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46'}
@@ -35,24 +38,37 @@ def hud_scrape():
 
     ## Actual HTML pull
     object_list = []
-    for item in range(0,3):
+    for item in range(10):
 
         title = soup.find(class_='col-md-12').find_all('a')[item].get_text()
         ilink = "https://www.hud.gov" + soup.find(class_='col-md-12').find_all('a')[item].get('href')
         #notes = item.find()
-        idate = soup.find(class_='col-md-12').find_all('p')[item].get_text()
+        idate = soup.find(class_='col-md-12').find_all('p')[item].get_text().partition(',')[2].partition('\n')[0]
 
-        obj_data = {'type':'Government','source':'HUD Dept', 'title': title, 'link': ilink, 'Notes': 'notes', 'date': idate}
-        object_list.append(obj_data)
+        if idate in date_list:
+            obj_data = {'type':'Government','source':'HUD Dept', 'title': title, 'link': ilink, 'Notes': 'notes', 'date': idate}
+            object_list.append(obj_data)
+
+    if len(object_list) == 0:   
+        for item in range(1):
+            title = soup.find(class_='col-md-12').find_all('a')[item].get_text()
+            ilink = "https://www.hud.gov" + soup.find(class_='col-md-12').find_all('a')[item].get('href')
+            #notes = item.find()
+            idate = soup.find(class_='col-md-12').find_all('p')[item].get_text().partition(',')[2].partition('\n')[0]
+            obj_data = {'type':'Government','source':'HUD Dept', 'title': title, 'link': ilink, 'Notes': 'notes', 'date': idate}
+            object_list.append(obj_data)
 
     ## Final dataframe is defined
     hud_dept_df = pd.DataFrame(object_list)
 
     ##** Error Handling for empty result
     if len(hud_dept_df) == 0:
-        print('URL Broken')
-        obj_list = [{'type':'Government','source':'HUD Dept', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
+        print('No Result')
+        obj_list = [{'type':'Government','source':'HUD Dept', 'title': 'Tags Not Found', 'link': '', 'Notes': '', 'date': ''}]
         hud_dept_df = pd.DataFrame(obj_list)
         return hud_dept_df
 
+    print(hud_dept_df)
     return hud_dept_df
+
+hud_scrape()

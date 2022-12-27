@@ -1,10 +1,10 @@
 from bs4 import BeautifulSoup  ## BeautifulSoup is a web parsing package to help pull specific HTML components
 import urllib.request  ## to get a access to a URL and its content
 import pandas as pd 
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
 import requests 
 
-def state_scrape():
+def irs_scrape():
     ## Date List created with string values for the last 4 days to only pull opinions from that range.  
     ## General templates to pull from, not all are always used.
     today = date.today()
@@ -20,54 +20,45 @@ def state_scrape():
 
     ## Headers is used because a User-Agent was required by the website
     headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46'}
-    link = "https://www.state.gov/press-releases/"
+    link = "https://www.irs.gov/newsroom/news-releases-for-current-month"
 
-    ##** Error Handling for bad URL
+     ##** Error Handling for bad URL
     try:
         page = requests.get(link, headers=headers)
         page.raise_for_status()
     except:
         print('URL Broken')
-        obj_list = [{'type':'Government','source':'State Dept', 'title': 'Link Broken', 'link': '', 'Notes': '', 'date': ''}]
-        state_dept_df = pd.DataFrame(obj_list)
-        return state_dept_df
-        
-    ## Parse the webpage
+        obj_list = [{'type':'Government','source':'IRS', 'title': 'Link Broken', 'link': '', 'Notes': '', 'date': ''}]
+        irs_df = pd.DataFrame(obj_list)
+        return irs_df
+
     page = requests.get(link, headers=headers)
     soup = BeautifulSoup(page.content, 'lxml')
 
     ## Actual HTML pull
     object_list = []
-    for item in soup.find_all(class_='collection-result'):
+    for item in soup.find_all(class_='media'):
 
-        if item.find('span',dir="ltr").get_text() in date_list:
-            title = item.find('a').get_text().strip('\n\n\t\t')
-            ilink = item.find('a').get('href')
-            notes = item.find()
-            idate = item.find('span',dir="ltr").get_text()
-            obj_data = {'type':'Government','source':'State Dept', 'title': title, 'link': ilink, 'Notes': '', 'date': idate}
-            object_list.append(obj_data)
+        #if item.find('span').get_text() in date_list:
+        title = item.find('a').get_text().lstrip('\n')
+        ilink = "https://www.irs.gov" + item.find('a').get('href')
+        notes = item.find('div').get_text()
+        idate = item.find()
 
-    if len(object_list) == 0:
-        item = soup.find(class_='collection-result')
-        title = item.find('a').get_text().strip('\n\n\t\t')
-        ilink = item.find('a').get('href')
-        notes = item.find()
-        idate = item.find('span',dir="ltr").get_text()
-        obj_data = {'type':'Government','source':'State Dept', 'title': title, 'link': ilink, 'Notes': '', 'date': idate}
+        obj_data = {'type':'Government','source':'IRS', 'title': title, 'link': ilink, 'Notes': notes, 'date': ''}
         object_list.append(obj_data)
 
     ## Final dataframe is defined
-    state_dept_df = pd.DataFrame(object_list)
+    irs_df = pd.DataFrame(object_list).head()
 
     ##** Error Handling for empty result
-    if len(state_dept_df) == 0:
+    if len(irs_df) == 0:
         print('No Result')
-        obj_list = [{'type':'Government','source':'State Dept', 'title': 'Tag Not Found', 'link': '', 'Notes': '', 'date': ''}]
-        state_dept_df = pd.DataFrame(obj_list)
-        return state_dept_df
+        obj_list = [{'type':'Government','source':'IRS', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
+        irs_df = pd.DataFrame(obj_list)
+        return irs_df
     ## Final Return Statement
-    print(state_dept_df)
-    return state_dept_df
+    print(irs_df)
+    return irs_df
 
-state_scrape()
+irs_scrape()

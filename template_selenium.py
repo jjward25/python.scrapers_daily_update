@@ -56,16 +56,15 @@ def defense_scrape():
             object_list.append(obj_data)
         ## IF statement above pulls in anything within the listed date range.  Below checks if that received anything, and 
         ## is meant to pull in the most recent record if none are within the date range, so we know if the code is broken or if there's just nothing new
-    if len(object_list) == 0:
-        item = driver.find_element(By.XPATH,'//div[@class="listing-with-preview item explore-item"]')
-        title = item.find_element(By.CLASS_NAME,"title").text
-        #print(title)
-        ilink = item.find_element(By.CLASS_NAME,"link-overlay").get_attribute("href")
-        #notes = item.find()
-        idate = item.find_element(By.TAG_NAME,"time").text
-        #print(idate)
-        obj_data = {'type':'Government','source':'Defense Dept', 'title': title, 'link': ilink, 'Notes': '', 'date': idate}
-        object_list.append(obj_data)
+        if len(object_list) == 0:
+            title = item.find_element(By.CLASS_NAME,"title").text
+            #print(title)
+            ilink = item.find_element(By.CLASS_NAME,"link-overlay").get_attribute("href")
+            #notes = item.find()
+            idate = item.find_element(By.TAG_NAME,"time").text
+            #print(idate)
+            obj_data = {'type':'Government','source':'Defense Dept', 'title': title, 'link': ilink, 'Notes': '', 'date': idate}
+            object_list.append(obj_data)
 
 
     ## Final dataframe is defined
@@ -75,7 +74,7 @@ def defense_scrape():
     ##** Error Handling for empty result
     if len(defense_dept_df) == 0:
         print('No Result')
-        obj_list = [{'type':'Government','source':'Defense Dept', 'title': 'Tags Not Found', 'link': '', 'Notes': '', 'date': ''}]
+        obj_list = [{'type':'Government','source':'Defense Dept', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
         defense_dept_df = pd.DataFrame(obj_list)
         return defense_dept_df
 

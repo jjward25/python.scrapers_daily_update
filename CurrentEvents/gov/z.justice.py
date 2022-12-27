@@ -1,10 +1,10 @@
 from bs4 import BeautifulSoup  ## BeautifulSoup is a web parsing package to help pull specific HTML components
 import urllib.request  ## to get a access to a URL and its content
 import pandas as pd 
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
 import requests 
 
-def state_scrape():
+def justice_scrape():
     ## Date List created with string values for the last 4 days to only pull opinions from that range.  
     ## General templates to pull from, not all are always used.
     today = date.today()
@@ -20,7 +20,7 @@ def state_scrape():
 
     ## Headers is used because a User-Agent was required by the website
     headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46'}
-    link = "https://www.state.gov/press-releases/"
+    link = "https://www.justice.gov/"
 
     ##** Error Handling for bad URL
     try:
@@ -28,9 +28,9 @@ def state_scrape():
         page.raise_for_status()
     except:
         print('URL Broken')
-        obj_list = [{'type':'Government','source':'State Dept', 'title': 'Link Broken', 'link': '', 'Notes': '', 'date': ''}]
-        state_dept_df = pd.DataFrame(obj_list)
-        return state_dept_df
+        obj_list = [{'type':'Government','source':'Justice Dept', 'title': 'Link Broken', 'link': '', 'Notes': '', 'date': ''}]
+        justice_dept_df = pd.DataFrame(obj_list)
+        return justice_dept_df
         
     ## Parse the webpage
     page = requests.get(link, headers=headers)
@@ -38,36 +38,34 @@ def state_scrape():
 
     ## Actual HTML pull
     object_list = []
-    for item in soup.find_all(class_='collection-result'):
 
-        if item.find('span',dir="ltr").get_text() in date_list:
-            title = item.find('a').get_text().strip('\n\n\t\t')
-            ilink = item.find('a').get('href')
-            notes = item.find()
-            idate = item.find('span',dir="ltr").get_text()
-            obj_data = {'type':'Government','source':'State Dept', 'title': title, 'link': ilink, 'Notes': '', 'date': idate}
-            object_list.append(obj_data)
+    ##Pulls contents from different primary elements and uses a try and except format to print only relevant articles
+    for item in range(10):
+        try:
+            if datetime.strptime(soup.find_all(class_='views-row')[item].find(class_='date-display-single').get_text(), '%A, %B %d, %Y').strftime("%B %d, %Y") in date_list:
 
-    if len(object_list) == 0:
-        item = soup.find(class_='collection-result')
-        title = item.find('a').get_text().strip('\n\n\t\t')
-        ilink = item.find('a').get('href')
-        notes = item.find()
-        idate = item.find('span',dir="ltr").get_text()
-        obj_data = {'type':'Government','source':'State Dept', 'title': title, 'link': ilink, 'Notes': '', 'date': idate}
-        object_list.append(obj_data)
+                idate = soup.find_all(class_='views-row')[item].find(class_='date-display-single').get_text()
+                title = soup.find_all(class_='views-row')[item].find('a').get_text()
+                ilink = "https://www.justice.gov" + soup.find_all(class_='views-row')[item].find('a').get('href')
 
-    ## Final dataframe is defined
-    state_dept_df = pd.DataFrame(object_list)
+                obj_data = {'type':'Government','source':'Justice Dept', 'title': title, 'link': ilink, 'Notes': 'notes', 'date': idate}
+                object_list.append(obj_data)
+            
+        except: 
+            pass
+
+    ## Final dataframe is defined with duplicates removed
+    df = pd.DataFrame(object_list)
+    justice_dept_df = df.drop_duplicates()
 
     ##** Error Handling for empty result
-    if len(state_dept_df) == 0:
+    if len(justice_dept_df) == 0:
         print('No Result')
-        obj_list = [{'type':'Government','source':'State Dept', 'title': 'Tag Not Found', 'link': '', 'Notes': '', 'date': ''}]
-        state_dept_df = pd.DataFrame(obj_list)
-        return state_dept_df
+        obj_list = [{'type':'Government','source':'Justice Dept', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
+        justice_dept_df = pd.DataFrame(obj_list)
+        return justice_dept_df
     ## Final Return Statement
-    print(state_dept_df)
-    return state_dept_df
+    print(justice_dept_df)
+    return justice_dept_df
 
-state_scrape()
+justice_scrape()

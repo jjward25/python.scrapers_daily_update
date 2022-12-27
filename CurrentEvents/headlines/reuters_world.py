@@ -47,5 +47,7 @@ def reutersworld_scrape():
         reuters_world_df = pd.DataFrame(obj_list)
         return reuters_world_df
     ## Final Return Statement
+    print(reuters_world_df)
     return reuters_world_df
 
+reutersworld_scrape()

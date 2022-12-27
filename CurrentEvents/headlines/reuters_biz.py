@@ -25,7 +25,7 @@ def reutersbiz_scrape():
     soup = BeautifulSoup(page.content, 'lxml')
 
     test = soup.find_all(class_='story-card')[0]
-    print(test)
+    #print(test)
 
     ## Actual HTML pull
     object_list = []
@@ -49,4 +49,7 @@ def reutersbiz_scrape():
         reuters_biz_df = pd.DataFrame(obj_list)
         return reuters_biz_df
     ## Final Return Statement
+    print(reuters_biz_df)
     return reuters_biz_df
+    
+reutersbiz_scrape()

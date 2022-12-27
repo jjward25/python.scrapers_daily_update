@@ -4,7 +4,7 @@ import pandas as pd
 from datetime import date, timedelta
 import requests 
 
-def transportation_scrape():
+def interior_scrape():
     ## Date List created with string values for the last 4 days to only pull opinions from that range.  
     ## General templates to pull from, not all are always used.
     today = date.today()
@@ -20,7 +20,7 @@ def transportation_scrape():
 
     ## Headers is used because a User-Agent was required by the website
     headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46'}
-    link = "https://www.transportation.gov/newsroom/press-releases"
+    link = "https://www.doi.gov/news"
 
     ##** Error Handling for bad URL
     try:
@@ -28,9 +28,9 @@ def transportation_scrape():
         page.raise_for_status()
     except:
         print('URL Broken')
-        obj_list = [{'type':'Government','source':'Transportation Dept', 'title': 'Link Broken', 'link': '', 'Notes': '', 'date': ''}]
-        transportation_dept_df = pd.DataFrame(obj_list)
-        return transportation_dept_df
+        obj_list = [{'type':'Government','source':'Interior Dept', 'title': 'Link Broken', 'link': '', 'Notes': '', 'date': ''}]
+        interior_dept_df = pd.DataFrame(obj_list)
+        return interior_dept_df
         
     ## Parse the webpage
     page = requests.get(link, headers=headers)
@@ -38,37 +38,29 @@ def transportation_scrape():
 
     ## Actual HTML pull
     object_list = []
-    for item in soup.find_all(class_='card-main'):
 
-        if item.find('time').get_text() in date_list:
+    for item in soup.find_all(class_="node__content"):
 
-            title = item.find(class_='node__title').get_text().lstrip('\n')
-            ilink = item.find(class_='node__title').get('href')
-            #notes = item.find()
-            idate = item.find('time').get_text()
-            obj_data = {'type':'Government','source':'Transportation Dept', 'title': title, 'link': 'https://www.transportation.gov/newsroom/press-releases', 'Notes': 'notes', 'date': idate}
-            object_list.append(obj_data)
-
-    if len(object_list) == 0:
-        item = soup.find(class_='card-main')
-        title = item.find(class_='node__title').get_text().lstrip('\n')
-        ilink = item.find(class_='node__title').get('href')
-        #notes = item.find()
-        idate = item.find('time').get_text()
-        obj_data = {'type':'Government','source':'Transportation Dept', 'title': title, 'link': 'https://www.transportation.gov/newsroom/press-releases', 'Notes': 'notes', 'date': idate}
+        #if item.find('span').get_text() in date_list:
+        title = item.find('a').get_text()
+        ilink = "https://www.doi.gov" + item.find('a').get('href')
+        idate = item.find(class_="publication-date").get_text()
+        notes = item.find('p').get_text()
+        
+        obj_data = {'type':'Government','source':'Interior Dept', 'title': title, 'link': ilink, 'Notes': notes, 'date': idate}
         object_list.append(obj_data)
 
     ## Final dataframe is defined
-    transportation_dept_df = pd.DataFrame(object_list)
+    interior_dept_df = pd.DataFrame(object_list).head()
 
     ##** Error Handling for empty result
-    if len(transportation_dept_df) == 0:
+    if len(interior_dept_df) == 0:
         print('No Result')
-        obj_list = [{'type':'Government','source':'Transportation Dept', 'title': 'Tags Not Found', 'link': '', 'Notes': '', 'date': ''}]
-        transportation_dept_df = pd.DataFrame(obj_list)
-        return transportation_dept_df
+        obj_list = [{'type':'Government','source':'Interior Dept', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
+        interior_dept_df = pd.DataFrame(obj_list)
+        return interior_dept_df
     ## Final Return Statement
-    print(transportation_dept_df)
-    return transportation_dept_df
-
-transportation_scrape()
+    print(interior_dept_df)
+    return interior_dept_df
+    
+interior_scrape()
