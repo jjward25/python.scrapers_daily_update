@@ -38,17 +38,23 @@ def ed_scrape():
     ## Actual HTML pull
     object_list = []
     for item in soup.find_all(class_='views-row'):
-
         ## Transforms the time tag from a string to date format, then into the right date format and checks to see if it's in the date_list object
         if datetime.strptime(item.find_all('span')[0].get_text(), '%B %d, %Y').strftime("%B %d, %Y") in date_list:
-
             title = item.find_all(class_='views-field')[1].get_text()
             ilink = item.find('a').get('href')
             notes = item.find(class_="views-field-body").get_text()
             idate = item.find_all('span')[0].get_text()
-
             obj_data = {'type':'Government','source':'Ed Dept', 'title': title, 'link': ilink, 'Notes': notes, 'date': idate}
             object_list.append(obj_data)
+
+    if len(object_list) == 0:
+        item = soup.find(class_='views-row')
+        title = item.find_all(class_='views-field')[1].get_text()
+        ilink = item.find('a').get('href')
+        notes = item.find(class_="views-field-body").get_text()
+        idate = item.find_all('span')[0].get_text()
+        obj_data = {'type':'Government','source':'Ed Dept', 'title': title, 'link': ilink, 'Notes': notes, 'date': idate}
+        object_list.append(obj_data)
 
     ## Final dataframe is defined
     ed_dept_df = pd.DataFrame(object_list)

@@ -9,14 +9,18 @@ def homeland_scrape():
     today = date.today()
     yesterday = date.today() - timedelta(1)
     two_ago = date.today() - timedelta(2)
+
+    today_date = today.strftime("%Y-%m-%d")
+    yesterday_date = yesterday.strftime("%Y-%m-%d")
+    two_ago_date = two_ago.strftime("%Y-%m-%d")
     today_word = today.strftime("%B %d, %Y")
     today_word_single_digit_day = today.strftime("%B %d, %Y").replace(" 0", " ")
     yesterday_word = yesterday.strftime("%B %d, %Y")
     yesterday_word_single_digit_day = yesterday.strftime("%B %d, %Y").replace(" 0", " ")
     two_ago_word = two_ago.strftime("%B %d, %Y")
     two_ago_word_single_digit_day = two_ago.strftime("%B %d, %Y").replace(" 0", " ")
-    date_list = [today_word,yesterday_word,two_ago_word,today_word_single_digit_day,yesterday_word_single_digit_day,two_ago_word_single_digit_day]
-
+    date_list = [today_date,yesterday_date,two_ago_date,today_word,yesterday_word,two_ago_word,today_word_single_digit_day,yesterday_word_single_digit_day,two_ago_word_single_digit_day]
+    
     ## Headers is used because a User-Agent was required by the website
     headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46'}
     link = "https://www.dhs.gov/news-releases"
@@ -38,15 +42,22 @@ def homeland_scrape():
     ## Actual HTML pull
     object_list = []
 
-    for item in soup.find_all(class_='views-row'):
+    for item in soup.find_all(class_='usa-collection__item'):
 
-        if item.find_all(class_='field-content')[0].get_text() in date_list:
-            title = item.find_all(class_='field-content')[1].get_text()
+        if item.find('time').attrs['datetime'][:-15] in date_list:
+            title = item.find('a').get_text()
             ilink = "https://www.dhs.gov" + item.find('a').get('href')
-            idate = item.find_all(class_='field-content')[0].get_text()
-
+            idate = item.find('time').attrs['datetime'][:-15]
             obj_data = {'type':'Government','source':'Homeland Dept', 'title': title, 'link': ilink, 'Notes': '', 'date': idate}
             object_list.append(obj_data)
+        
+    if len(object_list) == 0:
+        item = soup.find(class_='usa-collection__item')
+        title = item.find('a').get_text()
+        ilink = "https://www.dhs.gov" + item.find('a').get('href')
+        idate = item.find('time').attrs['datetime'][:-15]
+        obj_data = {'type':'Government','source':'Homeland Dept', 'title': title, 'link': ilink, 'Notes': '', 'date': idate}
+        object_list.append(obj_data)
 
     ## Final dataframe is defined
     homeland_dept_df = pd.DataFrame(object_list)

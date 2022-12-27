@@ -13,7 +13,7 @@ s = Service(chromedriver)
 driver = webdriver.Chrome(service=s, options=option)
 #driver.get("https://www.defense.gov/Newsroom/") ## Must run this somewhere before searching for elements.  In this case we run it in the Try/Except
 
-def defense_scrape():
+def agriculture_scrape():
     ## Date List created with string values for the last 4 days to only pull opinions from that range.  
     ## General templates to pull from, not all are always used.
     today = date.today()
@@ -33,36 +33,36 @@ def defense_scrape():
     
     ##** Error Handling for bad URL
     try:
-        driver.get("https://www.defense.gov/Newsroom/")
+        driver.get("https://www.usda.gov/media/press-releases")
     except:
         print('URL Broken')
-        obj_list = [{'type':'Government','source':'Defense Dept', 'title': 'Driver or Link Issue', 'link': '', 'Notes': '', 'date': ''}]
+        obj_list = [{'type':'Government','source':'Agriculture Dept', 'title': 'Driver or Link Issue', 'link': '', 'Notes': '', 'date': ''}]
         defense_dept_df = pd.DataFrame(obj_list)
         return defense_dept_df
         
    
     ## Actual HTML pull
     object_list = [] 
-    for item in driver.find_elements(By.XPATH,'//div[@class="listing-with-preview item explore-item"]'):
+    for item in driver.find_elements(By.XPATH,'//li[@class="news-releases-item"]'):
         #print(item)
-        if item.find_element(By.TAG_NAME,"time").text in date_list:
-            title = item.find_element(By.CLASS_NAME,"title").text
+        if item.find_element(By.CLASS_NAME,"news-release-date").text in date_list:
+            title = item.find_element(By.TAG_NAME,"a").text
             #print(title)
-            ilink = item.find_element(By.CLASS_NAME,"link-overlay").get_attribute("href")
+            ilink = item.find_element(By.TAG_NAME,"a").get_attribute("href")
             #notes = item.find()
-            idate = item.find_element(By.TAG_NAME,"time").text
+            idate = item.find_element(By.CLASS_NAME,"news-release-date").text
             #print(idate)
             obj_data = {'type':'Government','source':'Defense Dept', 'title': title, 'link': ilink, 'Notes': '', 'date': idate}
             object_list.append(obj_data)
         ## IF statement above pulls in anything within the listed date range.  Below checks if that received anything, and 
         ## is meant to pull in the most recent record if none are within the date range, so we know if the code is broken or if there's just nothing new
     if len(object_list) == 0:
-        item = driver.find_element(By.XPATH,'//div[@class="listing-with-preview item explore-item"]')
-        title = item.find_element(By.CLASS_NAME,"title").text
+        item = driver.find_element(By.XPATH,'//li[@class="news-releases-item"]')
+        title = item.find_element(By.TAG_NAME,"a").text
         #print(title)
-        ilink = item.find_element(By.CLASS_NAME,"link-overlay").get_attribute("href")
+        ilink = item.find_element(By.TAG_NAME,"a").get_attribute("href")
         #notes = item.find()
-        idate = item.find_element(By.TAG_NAME,"time").text
+        idate = item.find_element(By.CLASS_NAME,"news-release-date").text
         #print(idate)
         obj_data = {'type':'Government','source':'Defense Dept', 'title': title, 'link': ilink, 'Notes': '', 'date': idate}
         object_list.append(obj_data)
@@ -81,4 +81,4 @@ def defense_scrape():
 
     print(defense_dept_df)
     return defense_dept_df
-defense_scrape()
+agriculture_scrape()
