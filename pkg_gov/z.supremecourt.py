@@ -38,16 +38,22 @@ def supremecourt_scrape():
     ## Actual HTML pull
     object_list = []
     for item in soup.find_all(id='opinionsbyday'):
-
         if item.find('span').get_text() in date_list:
-
             title = item.find(class_='casenamerow').get_text().strip('\n')
             ilink = item.find('a').get('href')
             notes = item.find(class_='casedetail').get_text().strip('\n')
             idate = item.find('span').get_text()
-
             obj_data = {'type':'Government','source':'Supreme Court', 'title': title, 'link': ilink, 'Notes': notes, 'date': idate}
             object_list.append(obj_data)
+
+    if len(object_list) == 0:
+        item = soup.find(id='opinionsbyday')
+        title = item.find(class_='casenamerow').get_text().strip('\n')
+        ilink = item.find('a').get('href')
+        notes = item.find(class_='casedetail').get_text().strip('\n')
+        idate = item.find('span').get_text()
+        obj_data = {'type':'Government','source':'Supreme Court', 'title': title, 'link': ilink, 'Notes': notes, 'date': idate}
+        object_list.append(obj_data)
 
     ## Final dataframe is defined
     supreme_court_df = pd.DataFrame(object_list)

@@ -41,18 +41,22 @@ def justice_scrape():
 
     ##Pulls contents from different primary elements and uses a try and except format to print only relevant articles
     for item in range(10):
-        try:
-            if datetime.strptime(soup.find_all(class_='views-row')[item].find(class_='date-display-single').get_text(), '%A, %B %d, %Y').strftime("%B %d, %Y") in date_list:
+        if datetime.strptime(soup.find_all(class_='views-row')[item].find(class_='date-display-single').get_text(), '%A, %B %d, %Y').strftime("%B %d, %Y") in date_list:
 
-                idate = soup.find_all(class_='views-row')[item].find(class_='date-display-single').get_text()
-                title = soup.find_all(class_='views-row')[item].find('a').get_text()
-                ilink = "https://www.justice.gov" + soup.find_all(class_='views-row')[item].find('a').get('href')
-
-                obj_data = {'type':'Government','source':'Justice Dept', 'title': title, 'link': ilink, 'Notes': 'notes', 'date': idate}
-                object_list.append(obj_data)
+            idate = soup.find_all(class_='views-row')[item].find(class_='date-display-single').get_text()
+            title = soup.find_all(class_='views-row')[item].find('a').get_text()
+            ilink = "https://www.justice.gov" + soup.find_all(class_='views-row')[item].find('a').get('href')
+            obj_data = {'type':'Government','source':'Justice Dept', 'title': title, 'link': ilink, 'Notes': 'notes', 'date': idate}
+            object_list.append(obj_data)
             
-        except: 
-            pass
+    if len(object_list) == 0:
+        for item in range(1):
+            
+            idate = soup.find_all(class_='views-row')[item].find(class_='date-display-single').get_text()
+            title = soup.find_all(class_='views-row')[item].find('a').get_text()
+            ilink = "https://www.justice.gov" + soup.find_all(class_='views-row')[item].find('a').get('href')
+            obj_data = {'type':'Government','source':'Justice Dept', 'title': title, 'link': ilink, 'Notes': 'notes', 'date': idate}
+            object_list.append(obj_data)
 
     ## Final dataframe is defined with duplicates removed
     df = pd.DataFrame(object_list)

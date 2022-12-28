@@ -36,7 +36,7 @@ def agriculture_scrape():
         driver.get("https://www.usda.gov/media/press-releases")
     except:
         print('URL Broken')
-        obj_list = [{'type':'Government','source':'Agriculture Dept', 'title': 'Driver or Link Issue', 'link': '', 'Notes': '', 'date': ''}]
+        obj_list = [{'type':'Government','source':'USDA', 'title': 'Driver or Link Issue', 'link': '', 'Notes': '', 'date': ''}]
         defense_dept_df = pd.DataFrame(obj_list)
         return defense_dept_df
         
@@ -52,7 +52,7 @@ def agriculture_scrape():
             #notes = item.find()
             idate = item.find_element(By.CLASS_NAME,"news-release-date").text
             #print(idate)
-            obj_data = {'type':'Government','source':'Defense Dept', 'title': title, 'link': ilink, 'Notes': '', 'date': idate}
+            obj_data = {'type':'Government','source':'USDA', 'title': title, 'link': ilink, 'Notes': '', 'date': idate}
             object_list.append(obj_data)
         ## IF statement above pulls in anything within the listed date range.  Below checks if that received anything, and 
         ## is meant to pull in the most recent record if none are within the date range, so we know if the code is broken or if there's just nothing new
@@ -64,7 +64,7 @@ def agriculture_scrape():
         #notes = item.find()
         idate = item.find_element(By.CLASS_NAME,"news-release-date").text
         #print(idate)
-        obj_data = {'type':'Government','source':'Defense Dept', 'title': title, 'link': ilink, 'Notes': '', 'date': idate}
+        obj_data = {'type':'Government','source':'USDA', 'title': title, 'link': ilink, 'Notes': '', 'date': idate}
         object_list.append(obj_data)
 
 
@@ -75,7 +75,7 @@ def agriculture_scrape():
     ##** Error Handling for empty result
     if len(defense_dept_df) == 0:
         print('No Result')
-        obj_list = [{'type':'Government','source':'Defense Dept', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
+        obj_list = [{'type':'Government','source':'USDA', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
         defense_dept_df = pd.DataFrame(obj_list)
         return defense_dept_df
 

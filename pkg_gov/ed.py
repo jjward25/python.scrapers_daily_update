@@ -27,7 +27,7 @@ def ed_scrape():
         page.raise_for_status()
     except:
         print('URL Broken')
-        obj_list = [{'type':'Government','source':'Education Dept', 'title': 'Link Broken', 'link': '', 'Notes': '', 'date': ''}]
+        obj_list = [{'type':'Government','source':'Ed Dept', 'title': 'Link Broken', 'link': '', 'Notes': '', 'date': ''}]
         ed_dept_df = pd.DataFrame(obj_list)
         return ed_dept_df
         
@@ -62,7 +62,7 @@ def ed_scrape():
     ##** Error Handling for empty result
     if len(ed_dept_df) == 0:
         print('No Result')
-        obj_list = [{'type':'Government','source':'Education Dept', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
+        obj_list = [{'type':'Government','source':'Ed Dept', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
         ed_dept_df = pd.DataFrame(obj_list)
         return ed_dept_df
 
