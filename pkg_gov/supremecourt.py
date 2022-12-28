@@ -16,11 +16,15 @@ def supremecourt_scrape():
     yesterday_word_single_digit_day = yesterday.strftime("%B %d, %Y").replace(" 0", " ")
     two_ago_word = two_ago.strftime("%B %d, %Y")
     two_ago_word_single_digit_day = two_ago.strftime("%B %d, %Y").replace(" 0", " ")
-    date_list = [today_word,yesterday_word,two_ago_word,today_word_single_digit_day,yesterday_word_single_digit_day,two_ago_word_single_digit_day]
+    today_new = today.strftime("%m/%d/%Y")
+    yesterday_new = yesterday.strftime("%m/%d/%Y")
+    two_ago_new = two_ago.strftime("%m/%d/%Y")
+    date_list = [today_new,yesterday_new,two_ago_new,today_word,yesterday_word,two_ago_word,today_word_single_digit_day,yesterday_word_single_digit_day,two_ago_word_single_digit_day]
+    #print(date_list)
 
     ## Headers is used because a User-Agent was required by the website
     headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46'}
-    link = "https://www.supremecourt.gov/"
+    link = "https://www.supremecourt.gov/opinions/slipopinion/22"
 
      ##** Error Handling for bad URL
     try:
@@ -37,22 +41,19 @@ def supremecourt_scrape():
 
     ## Actual HTML pull
     object_list = []
-    for item in soup.find_all(id='opinionsbyday'):
-        if item.find('span').get_text() in date_list:
-            title = item.find(class_='casenamerow').get_text().strip('\n')
+
+    for item in soup.find_all('tr')[2:10]:
+        #print(item.find_all('td')[1].get_text())
+        if item.find_all('td')[1].get_text() in date_list:
+            title = item.find_all('td')[1].get_text()
             ilink = item.find('a').get('href')
-            notes = item.find(class_='casedetail').get_text().strip('\n')
-            idate = item.find('span').get_text()
-            obj_data = {'type':'Government','source':'Supreme Court', 'title': title, 'link': ilink, 'Notes': notes, 'date': idate}
+            #notes = item.find(class_='casedetail').get_text().strip('\n')
+            idate = item.find_all('td')[1].get_text()
+            obj_data = {'type':'Government','source':'Supreme Court', 'title': title, 'link': ilink, 'Notes': 'notes', 'date': idate}
             object_list.append(obj_data)
 
     if len(object_list) == 0:
-        item = soup.find(id='opinionsbyday')
-        title = item.find(class_='casenamerow').get_text().strip('\n')
-        ilink = item.find('a').get('href')
-        notes = item.find(class_='casedetail').get_text().strip('\n')
-        idate = item.find('span').get_text()
-        obj_data = {'type':'Government','source':'Supreme Court', 'title': title, 'link': ilink, 'Notes': notes, 'date': idate}
+        obj_data = {'type':'Government','source':'Supreme Court', 'title': 'title', 'link': 'ilink', 'Notes': 'No New Cases', 'date': 'idate'}
         object_list.append(obj_data)
 
     ## Final dataframe is defined
