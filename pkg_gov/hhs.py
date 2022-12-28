@@ -55,7 +55,7 @@ def hhs_scrape():
         ilink = "https://www.hhs.gov" + item.find('a').get('href')
         notes = item.find()
         idate = item.find(class_='date-display-single').get_text().rstrip(' | News Release')
-        obj_data = {'type':'Government','source':'HHS Dept', 'title': title, 'link': ilink, 'Notes': 'notes', 'date': idate}
+        obj_data = {'type':'Government','source':'HHS Dept', 'title': title, 'link': ilink, 'Notes': 'Query Working, No New Posts', 'date': idate}
         object_list.append(obj_data)
             
     ## Final dataframe is defined

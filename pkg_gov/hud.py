@@ -55,7 +55,7 @@ def hud_scrape():
             ilink = "https://www.hud.gov" + soup.find(class_='col-md-12').find_all('a')[item].get('href')
             #notes = item.find()
             idate = soup.find(class_='col-md-12').find_all('p')[item].get_text().partition(',')[2].partition('\n')[0]
-            obj_data = {'type':'Government','source':'HUD Dept', 'title': title, 'link': ilink, 'Notes': 'notes', 'date': idate}
+            obj_data = {'type':'Government','source':'HUD Dept', 'title': title, 'link': ilink, 'Notes': 'Query Working, No New Posts', 'date': idate}
             object_list.append(obj_data)
 
     ## Final dataframe is defined

@@ -57,7 +57,7 @@ def whitehouse_scrape():
         ilink = item.find(class_='news-item__title').get('href')
         #notes = item.find(class_='field--type-text-with-summary').get_text()
         idate = item.find('time').get_text()
-        obj_data = {'type':'Government','source':'White House', 'title': title, 'link': ilink, 'Notes': 'notes', 'date': idate}
+        obj_data = {'type':'Government','source':'White House', 'title': title, 'link': ilink, 'Notes': 'Query Working, No New Posts', 'date': idate}
         object_list.append(obj_data)
 
     ## Final dataframe is defined

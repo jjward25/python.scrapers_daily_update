@@ -64,7 +64,7 @@ def agriculture_scrape():
         #notes = item.find()
         idate = item.find_element(By.CLASS_NAME,"news-release-date").text
         #print(idate)
-        obj_data = {'type':'Government','source':'USDA', 'title': title, 'link': ilink, 'Notes': '', 'date': idate}
+        obj_data = {'type':'Government','source':'USDA', 'title': title, 'link': ilink, 'Query Working, No New Posts': '', 'date': idate}
         object_list.append(obj_data)
 
 

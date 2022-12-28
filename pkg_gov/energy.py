@@ -54,7 +54,7 @@ def energy_scrape():
         ilink = "https://www.energy.gov" + item.find(class_='search-result-title').get('href')
         notes = item.find(class_='search-result-summary').get_text()
         idate = item.find(class_='search-result-display-date').get_text()
-        obj_data = {'type':'Government','source':'Energy Dept', 'title': title, 'link': ilink, 'Notes': notes, 'date': idate}
+        obj_data = {'type':'Government','source':'Energy Dept', 'title': title, 'link': ilink, 'Notes': 'Query Working, No New Posts', 'date': idate}
         object_list.append(obj_data)
 
     ## Final dataframe is defined

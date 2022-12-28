@@ -38,7 +38,7 @@ def treasury_scrape():
             idate = soup.find_all(class_='date-format')[item].find('time').get_text()
             title = soup.find_all(class_='featured-stories__headline')[item].find('a').get_text()
             ilink = "https://home.treasury.gov" + soup.find_all(class_='featured-stories__headline')[item].find('a').get('href')
-            obj_data = {'type':'Government','source':'Treasury Dept', 'title': title, 'link': ilink, 'Notes': 'notes', 'date': idate}
+            obj_data = {'type':'Government','source':'Treasury Dept', 'title': title, 'link': ilink, 'Notes': 'Query Working, No New Posts', 'date': idate}
             object_list.append(obj_data)
     
     ## Final dataframe is defined with duplicates removed

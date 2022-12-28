@@ -53,7 +53,7 @@ def ed_scrape():
         ilink = item.find('a').get('href')
         notes = item.find(class_="views-field-body").get_text()
         idate = item.find_all('span')[0].get_text()
-        obj_data = {'type':'Government','source':'Ed Dept', 'title': title, 'link': ilink, 'Notes': notes, 'date': idate}
+        obj_data = {'type':'Government','source':'Ed Dept', 'title': title, 'link': ilink, 'Notes': 'Query Working, No New Posts', 'date': idate}
         object_list.append(obj_data)
 
     ## Final dataframe is defined

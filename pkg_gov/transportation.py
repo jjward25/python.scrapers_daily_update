@@ -55,7 +55,7 @@ def transportation_scrape():
         ilink = item.find(class_='node__title').get('href')
         #notes = item.find()
         idate = item.find('time').get_text()
-        obj_data = {'type':'Government','source':'Transportation Dept', 'title': title, 'link': 'https://www.transportation.gov/newsroom/press-releases', 'Notes': 'notes', 'date': idate}
+        obj_data = {'type':'Government','source':'Transportation Dept', 'title': title, 'link': 'https://www.transportation.gov/newsroom/press-releases', 'Notes': 'Query Working, No New Posts', 'date': idate}
         object_list.append(obj_data)
 
     ## Final dataframe is defined

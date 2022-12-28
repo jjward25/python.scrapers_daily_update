@@ -54,7 +54,7 @@ def commerce_scrape():
         ilink = "https://www.commcerce.gov" + item.find('a').get('href')
         notes = item.find(class_='clearfix').get_text()
         idate = item.find('time').get_text()
-        obj_data = {'type':'Government','source':'Commerce Dept', 'title': title, 'link': ilink, 'Notes': notes, 'date': idate}
+        obj_data = {'type':'Government','source':'Commerce Dept', 'title': title, 'link': ilink, 'Query Working, No New Posts': notes, 'date': idate}
         object_list.append(obj_data)
             
     ## Final dataframe is defined

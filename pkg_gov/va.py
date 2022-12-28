@@ -65,7 +65,7 @@ def va_scrape():
         ilink = item.find('a').get('href')
         notes = item.find()
         idate = item.find(class_='fusion-single-line-meta').find_all('span')[3].get_text()
-        obj_data = {'type':'Government','source':'VA Dept', 'title': title, 'link': ilink, 'Notes': 'notes', 'date': idate}
+        obj_data = {'type':'Government','source':'VA Dept', 'title': title, 'link': ilink, 'Notes': 'Query Working, No New Posts', 'date': idate}
         object_list.append(obj_data)
 
     ## Final dataframe is defined

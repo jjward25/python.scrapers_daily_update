@@ -56,7 +56,7 @@ def homeland_scrape():
         title = item.find('a').get_text()
         ilink = "https://www.dhs.gov" + item.find('a').get('href')
         idate = item.find('time').attrs['datetime'][:-15]
-        obj_data = {'type':'Government','source':'Homeland Dept', 'title': title, 'link': ilink, 'Notes': '', 'date': idate}
+        obj_data = {'type':'Government','source':'Homeland Dept', 'title': title, 'link': ilink, 'Notes': 'Query Working, No New Posts', 'date': idate}
         object_list.append(obj_data)
 
     ## Final dataframe is defined

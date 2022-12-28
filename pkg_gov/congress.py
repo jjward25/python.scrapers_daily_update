@@ -122,7 +122,7 @@ def congress_scrape():
         #notes = item.find()
         idate = cleandate
         #print(idate)
-        obj_data = {'type':'Government','source':'Congress', title: 'title', 'link': ilink, 'Notes': '', 'date': idate}
+        obj_data = {'type':'Government','source':'Congress', title: 'title', 'link': ilink, 'Query Working, No New Posts': '', 'date': idate}
         object_list.append(obj_data)
 
     ## Final dataframe is defined

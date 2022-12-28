@@ -55,7 +55,7 @@ def labor_scrape():
         ilink = "https://www.dol.gov" + item.find('a').get('href').lstrip(' ')
         notes = item.find(class_='field--type-text-with-summary').get_text()
         idate = item.find('p').get_text()
-        obj_data = {'type':'Government','source':'Labor Dept', 'title': title, 'link': ilink, 'Notes': notes, 'date': idate}
+        obj_data = {'type':'Government','source':'Labor Dept', 'title': title, 'link': ilink, 'Notes': 'Query Working, No New Posts', 'date': idate}
         object_list.append(obj_data)
 
     ## Final dataframe is defined

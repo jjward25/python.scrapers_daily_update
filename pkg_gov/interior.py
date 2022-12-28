@@ -16,7 +16,10 @@ def interior_scrape():
     yesterday_word_single_digit_day = yesterday.strftime("%B %d, %Y").replace(" 0", " ")
     two_ago_word = two_ago.strftime("%B %d, %Y")
     two_ago_word_single_digit_day = two_ago.strftime("%B %d, %Y").replace(" 0", " ")
-    date_list = [today_word,yesterday_word,two_ago_word,today_word_single_digit_day,yesterday_word_single_digit_day,two_ago_word_single_digit_day]
+    today_new = today.strftime("%m/%d/%Y")
+    yesterday_new = yesterday.strftime("%m/%d/%Y")
+    two_ago_new = two_ago.strftime("%m/%d/%Y")
+    date_list = [today_new,yesterday_new,two_ago_new,today_word,yesterday_word,two_ago_word,today_word_single_digit_day,yesterday_word_single_digit_day,two_ago_word_single_digit_day]
 
     ## Headers is used because a User-Agent was required by the website
     headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46'}
@@ -41,13 +44,21 @@ def interior_scrape():
 
     for item in soup.find_all(class_="node__content"):
 
-        #if item.find('span').get_text() in date_list:
+        if item.find(class_="publication-date").get_text() in date_list:
+            title = item.find('a').get_text()
+            ilink = "https://www.doi.gov" + item.find('a').get('href')
+            idate = item.find(class_="publication-date").get_text()
+            #notes = item.find('p').get_text()
+            obj_data = {'type':'Government','source':'Interior Dept', 'title': title, 'link': ilink, 'Notes': 'notes', 'date': idate}
+            object_list.append(obj_data)
+
+    if len(object_list) == 0:
+        item = soup.find(class_="node__content")
         title = item.find('a').get_text()
         ilink = "https://www.doi.gov" + item.find('a').get('href')
         idate = item.find(class_="publication-date").get_text()
-        notes = item.find('p').get_text()
-        
-        obj_data = {'type':'Government','source':'Interior Dept', 'title': title, 'link': ilink, 'Notes': notes, 'date': idate}
+        #notes = item.find('p').get_text()
+        obj_data = {'type':'Government','source':'Interior Dept', 'title': title, 'link': ilink, 'Notes': 'Query Working, No New Posts', 'date': idate}
         object_list.append(obj_data)
 
     ## Final dataframe is defined
