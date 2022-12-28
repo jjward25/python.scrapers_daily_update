@@ -64,7 +64,7 @@ def defense_scrape():
         #notes = item.find()
         idate = item.find_element(By.TAG_NAME,"time").text
         #print(idate)
-        obj_data = {'type':'Government','source':'Defense Dept', 'title': title, 'link': ilink, 'Notes': '', 'date': idate}
+        obj_data = {'type':'Government','source':'Defense Dept', 'title': title, 'link': ilink, 'Notes': 'Query Worked', 'date': idate}
         object_list.append(obj_data)
 
 
