@@ -20,7 +20,7 @@ def justice_scrape():
 
     ## Headers is used because a User-Agent was required by the website
     headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46'}
-    link = "https://www.justice.gov/"
+    link = "https://www.justice.gov/news"
 
     ##** Error Handling for bad URL
     try:
@@ -38,26 +38,28 @@ def justice_scrape():
 
     ## Actual HTML pull
     object_list = []
+    stop_name = soup.find_all('h3')[1].find('span').get_text()
+    print("stopname: " + stop_name)
 
-    ##Pulls contents from different primary elements and uses a try and except format to print only relevant articles
-    for item in range(10):
-        if datetime.strptime(soup.find_all(class_='views-row')[item].find(class_='date-display-single').get_text(), '%A, %B %d, %Y').strftime("%B %d, %Y") in date_list:
-
-            idate = soup.find_all(class_='views-row')[item].find(class_='date-display-single').get_text()
-            title = soup.find_all(class_='views-row')[item].find('a').get_text()
-            ilink = "https://www.justice.gov" + soup.find_all(class_='views-row')[item].find('a').get('href')
-            obj_data = {'type':'Government','source':'Justice Dept', 'title': title, 'link': ilink, 'Notes': 'notes', 'date': idate}
+    content = soup.find_all(class_='view-content')[0]
+    
+    for item in content:
+        if (stop_name in str(item)):
+            break
+        if (item.find('a') == -1):
+            continue
+        if (type(item.find('a')) == type(None)):
+            continue
+        else:
+            print("result")
+            print(item)
+            title = item.find('a').get_text()
+            ilink = "https://www.justice.gov" + item.find('a').get('href')
+            obj_data = {'type':'Government','source':'Justice Dept', 'title': title, 'link': ilink, 'Notes': 'notes', 'date': 'idate'}
             object_list.append(obj_data)
-            
-    if len(object_list) == 0:
-        for item in range(1):
-            
-            idate = soup.find_all(class_='views-row')[item].find(class_='date-display-single').get_text()
-            title = soup.find_all(class_='views-row')[item].find('a').get_text()
-            ilink = "https://www.justice.gov" + soup.find_all(class_='views-row')[item].find('a').get('href')
-            obj_data = {'type':'Government','source':'Justice Dept', 'title': title, 'link': ilink, 'Notes': 'notes', 'date': idate}
-            object_list.append(obj_data)
 
+        
+            
     ## Final dataframe is defined with duplicates removed
     df = pd.DataFrame(object_list)
     justice_dept_df = df.drop_duplicates()
