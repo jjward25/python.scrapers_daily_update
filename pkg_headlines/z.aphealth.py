@@ -42,7 +42,7 @@ def aphealth_scrape():
 
     ##** Error Handling for empty result
     if len(aphealth_df) == 0:
-        print('URL Broken')
+        print('No Result')
         obj_list = [{'type':'Headline','source':'AP Health', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
         aphealth_df = pd.DataFrame(obj_list)
         return aphealth_df

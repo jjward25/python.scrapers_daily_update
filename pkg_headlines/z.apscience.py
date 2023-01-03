@@ -42,7 +42,7 @@ def apscience_scrape():
 
     ##** Error Handling for empty result
     if len(apscience_df) == 0:
-        print('No Results')
+        print('No Result')
         obj_list = [{'type':'Headline','source':'AP Science', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
         apscience_df = pd.DataFrame(obj_list)
         

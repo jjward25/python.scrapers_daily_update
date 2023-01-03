@@ -51,7 +51,7 @@ def politico_scrape():
 
         ##** Error Handling for empty result
     if len(politico_df) == 0:
-        print('URL Broken')
+        print('No Results')
         obj_list = [{'type':'Headline','source':'Politico', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
         politico_df = pd.DataFrame(obj_list)
         return politico_df

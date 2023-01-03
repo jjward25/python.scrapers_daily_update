@@ -44,7 +44,7 @@ def nyt_scrape():
 
         ##** Error Handling for empty result
     if len(nyt_df) == 0:
-        print('URL Broken')
+        print('No Result')
         obj_list = [{'type':'Headline','source':'NYT', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
         nyt_df = pd.DataFrame(obj_list)
         return nyt_df

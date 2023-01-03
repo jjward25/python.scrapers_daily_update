@@ -42,7 +42,7 @@ def apus_scrape():
 
     ##** Error Handling for empty result
     if len(apus_df) == 0:
-        print('URL Broken')
+        print('No Result')
         obj_list = [{'type':'Headline','source':'AP US', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
         apus_df = pd.DataFrame(obj_list)
         return apus_df

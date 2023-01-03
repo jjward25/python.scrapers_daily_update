@@ -41,7 +41,7 @@ def apbiz_scrape():
 
     ##** Error Handling for empty result
     if len(apbiz_df) == 0:
-        print('URL Broken')
+        print('No Result')
         obj_list = [{'type':'Headline','source':'AP Biz', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
         apbiz_df = pd.DataFrame(obj_list)
         return apbiz_df

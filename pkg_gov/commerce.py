@@ -41,7 +41,7 @@ def commerce_scrape():
         if item.find('time').get_text() in date_list:
         
             title = item.find('a').get_text()
-            ilink = "https://www.commcerce.gov" + item.find('a').get('href')
+            ilink = "https://www.commerce.gov" + item.find('a').get('href')
             notes = item.find(class_='clearfix').get_text()
             idate = item.find('time').get_text()
 
@@ -51,7 +51,7 @@ def commerce_scrape():
     if len(object_list) == 0:
         item = soup.find('article')
         title = item.find('a').get_text()
-        ilink = "https://www.commcerce.gov" + item.find('a').get('href')
+        ilink = "https://www.commerce.gov" + item.find('a').get('href')
         notes = item.find(class_='clearfix').get_text()
         idate = item.find('time').get_text()
         obj_data = {'type':'Government','source':'Commerce Dept', 'title': title, 'link': ilink, 'Query Working, No New Posts': notes, 'date': idate}

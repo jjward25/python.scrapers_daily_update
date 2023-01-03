@@ -44,7 +44,7 @@ def aptech_scrape():
 
     ##** Error Handling for empty result
     if len(aptech_df) == 0:
-        print('URL Broken')
+        print('No Result')
         obj_list = [{'type':'Headline','source':'AP Tech', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
         aptech_df = pd.DataFrame(obj_list)
         return aptech_df

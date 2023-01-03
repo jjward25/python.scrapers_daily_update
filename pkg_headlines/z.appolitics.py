@@ -42,7 +42,7 @@ def appolitics_scrape():
 
         ##** Error Handling for empty result
     if len(appolitics_df) == 0:
-        print('URL Broken')
+        print('No Result')
         obj_list = [{'type':'Headline','source':'AP Politics', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
         appolitics_df = pd.DataFrame(obj_list)
         return appolitics_df

@@ -17,7 +17,8 @@ def irs_scrape():
     two_ago_word = two_ago.strftime("%B %d, %Y")
     two_ago_word_single_digit_day = two_ago.strftime("%B %d, %Y").replace(" 0", " ")
     date_list = [today_word,yesterday_word,two_ago_word,today_word_single_digit_day,yesterday_word_single_digit_day,two_ago_word_single_digit_day]
-    print(date_list)
+    #print(date_list)
+
     ## Headers is used because a User-Agent was required by the website
     headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46'}
     link = "https://www.irs.gov/newsroom"
@@ -57,9 +58,15 @@ def irs_scrape():
             obj_data = {'type':'Government','source':'IRS', 'title': title, 'link': ilink, 'Notes': notes, 'Date': idate}
             object_list.append(obj_data)
     ## Filter for Dates, pull most recent record if none within range to confirm query is still running
-    filtered_list = [p for p in object_list if p['Date'] in date_list]
+    #print(object_list)
+    filtered_list = []
+    for p in object_list:
+         if p['Date'] in date_list:
+            filtered_list.append(p)
+
     if len(filtered_list) == 0:
-        filtered_list = object_list[0]
+        filtered_list.append(object_list[0])
+
     ## Final dataframe is defined
     irs_df = pd.DataFrame(filtered_list)
     #print(irs_df)

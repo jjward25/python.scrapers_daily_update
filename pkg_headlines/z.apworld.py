@@ -42,7 +42,7 @@ def apworld_scrape():
 
     ##** Error Handling for empty result
     if len(apworld_df) == 0:
-        print('URL Broken')
+        print('No Result')
         obj_list = [{'type':'Headline','source':'AP World', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
         apworld_df = pd.DataFrame(obj_list)
         return apworld_df
