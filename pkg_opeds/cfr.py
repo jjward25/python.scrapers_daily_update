@@ -13,7 +13,7 @@ s = Service(chromedriver)
 driver = webdriver.Chrome(service=s, options=option)
 #driver.get("https://www.defense.gov/Newsroom/") ## Must run this somewhere before searching for elements.  In this case we run it in the Try/Except
 
-def defense_scrape():
+def cfr_scrape():
     ## Date List created with string values for the last 4 days to only pull opinions from that range.  
     ## General templates to pull from, not all are always used.
     today = date.today()
@@ -33,52 +33,42 @@ def defense_scrape():
     
     ##** Error Handling for bad URL
     try:
-        driver.get("https://www.foreignaffairs.com/search/")
+        driver.get("https://www.cfr.org/")
     except:
         print('URL Broken')
         obj_list = [{'type':'Op Ed','source':'CFR', 'title': 'Driver or Link Issue', 'link': '', 'Notes': '', 'date': ''}]
-        defense_dept_df = pd.DataFrame(obj_list)
-        return defense_dept_df
+        cfr_df = pd.DataFrame(obj_list)
+        return cfr_df
         
-   
     ## Actual HTML pull
     object_list = [] 
-    for item in driver.find_elements(By.XPATH,'//article[@class="browse-list-item container"]')[0:10]:
-        print(item.find_element(By.CLASS_NAME,"publication-date").text)
-        if item.find_element(By.CLASS_NAME,"publication-date").text in date_list:
-            title = item.find_element(By.XPATH,'//h2[@class="title ls-0 mb-0 mt-2"]').text
-            #print(title)
-            ilink = item.find_element(By.TAG_NAME,"a").get_attribute("href")
-            #notes = item.find()
-            idate = item.find_element(By.CLASS_NAME,"publication-date").text
-            #print(idate)
-            obj_data = {'type':'Op Ed','source':'CFR', 'title': title, 'link': ilink, 'Notes': '', 'date': idate}
-            object_list.append(obj_data)
-        ## IF statement above pulls in anything within the listed date range.  Below checks if that received anything, and 
-        ## is meant to pull in the most recent record if none are within the date range, so we know if the code is broken or if there's just nothing new
-    if len(object_list) == 0:
-        item = driver.find_element(By.XPATH,'//article[@class="browse-list-item container"]')
-        title = item.find_element(By.XPATH,'//h2[@class="title ls-0 mb-0 mt-2"]').text
+    for item in driver.find_elements(By.XPATH,'//a[@class="card-article__link"]')[7:15]:
+        title = item.find_element(By.TAG_NAME,'span').text
         #print(title)
-        ilink = item.find_element(By.TAG_NAME,"a").get_attribute("href")
+        ilink = item.get_attribute("href")
         #notes = item.find()
-        idate = item.find_element(By.CLASS_NAME,"publication-date").text
+        #idate = item.find_element(By.CLASS_NAME,"publication-date").text
         #print(idate)
-        obj_data = {'type':'Op Ed','source':'CFR', 'title': title, 'link': ilink, 'Notes': 'Query Worked', 'date': idate}
-        object_list.append(obj_data)
+        obj_data = {'type':'Op Ed','source':'CFR', 'title': title, 'link': ilink, 'Notes': '', 'date': 'idate'}
+        object_list.append(obj_data)  
+
+    
+    if len(object_list) == 0:
+        obj_data = {'type':'Op Ed','source':'CFR', 'title': 'broken', '': 'ilink', 'Notes': '', 'date': ''}
+        object_list.append(obj_data) 
 
 
     ## Final dataframe is defined
-    defense_dept_df = pd.DataFrame(object_list)
-    defense_dept_df = defense_dept_df
+    cfr_df = pd.DataFrame(object_list)
+    cfr_df = cfr_df
 
     ##** Error Handling for empty result
-    if len(defense_dept_df) == 0:
+    if len(cfr_df) == 0:
         print('No Result')
-        obj_list = [{'type':'Government','source':'Defense Dept', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
-        defense_dept_df = pd.DataFrame(obj_list)
-        return defense_dept_df
+        obj_list = [{'type':'Government','source':'CFR', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
+        cfr_df = pd.DataFrame(obj_list)
+        return cfr_df
 
-    print(defense_dept_df)
-    return defense_dept_df
-defense_scrape()
+    print(cfr_df)
+    return cfr_df
+cfr_scrape()

@@ -14,7 +14,7 @@ s = Service(chromedriver)
 driver = webdriver.Chrome(service=s, options=option)
 #driver.get("https://www.defense.gov/Newsroom/") ## Must run this somewhere before searching for elements.  In this case we run it in the Try/Except
 
-def defense_scrape():
+def national_review_scrape():
     ## Date List created with string values for the last 4 days to only pull opinions from that range.  
     ## General templates to pull from, not all are always used.
     today = date.today()
@@ -38,8 +38,8 @@ def defense_scrape():
     except:
         print('URL Broken')
         obj_list = [{'type':'Op Ed','source':'National Review', 'title': 'Driver or Link Issue', 'link': '', 'Notes': '', 'date': ''}]
-        defense_dept_df = pd.DataFrame(obj_list)
-        return defense_dept_df
+        national_review_df = pd.DataFrame(obj_list)
+        return national_review_df
         
     time.sleep(5)
     ## Actual HTML pull
@@ -85,16 +85,16 @@ def defense_scrape():
 
 
     ## Final dataframe is defined
-    defense_dept_df = pd.DataFrame(object_list)
-    defense_dept_df = defense_dept_df.head()
+    national_review_df = pd.DataFrame(object_list)
+    national_review_df = national_review_df.head()
 
     ##** Error Handling for empty result
-    if len(defense_dept_df) == 0:
+    if len(national_review_df) == 0:
         print('No Result')
         obj_list = [{'type':'Government','source':'Defense Dept', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
-        defense_dept_df = pd.DataFrame(obj_list)
-        return defense_dept_df
+        national_review_df = pd.DataFrame(obj_list)
+        return national_review_df
 
-    print(defense_dept_df)
-    return defense_dept_df
-defense_scrape()
+    print(national_review_df)
+    return national_review_df
+national_review_scrape()
