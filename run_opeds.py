@@ -2,18 +2,17 @@ from bs4 import BeautifulSoup  ## BeautifulSoup is a web parsing package to help
 from datetime import date
 import pandas as pd
 
-# Modules
-from pkg_headlines.apbusiness import *
-from pkg_headlines.aphealth import *
+
+from pkg_opeds.cfr import *
+from pkg_opeds.foreignaffairs import *
+from pkg_opeds.nationalreview import *
+from pkg_opeds.stratechery import *
+from pkg_opeds.sinocism import *
 
 
-
-combined_df = pd.DataFrame()
-combined_df = combined_df.append(apbiz_scrape())
-combined_df = combined_df.append(aphealth_scrape())
-
+#combine all files in the list
+df_list = [cfr_df, national_review_df, foreign_affairs_df, stratechery_df, sinocism_df]
+opeds_df = pd.concat(df_list)
 #print(combined_df)
-
-opeds_df = combined_df
 print(opeds_df)
 opeds_df.to_csv(r'opeds.csv',index=False)
