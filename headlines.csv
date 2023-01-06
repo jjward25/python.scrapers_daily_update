@@ -1,4 +1,75 @@
 type,source,title,link,Notes,date
+Headline,AP Politics,"Speaker fight, Day 4: McCarthy sees progress, no deal yet",https://www.apnews.com/article/politics-united-states-house-of-representatives-kevin-mccarthy-us-republican-party-0938c7358f41c83759246f8949ac7c15,notes,idate
+Headline,AP Politics,"2 years after Jan. 6, speaker scrap freezes Congress again",https://www.apnews.com/article/jan6-capitol-riots-second-anniversary-8014969520b61bf7f4d86689fc16e7f7,notes,idate
+Headline,AP Politics,EPA moves to toughen standards for deadly soot pollution,https://www.apnews.com/article/wildfires-climate-and-environment-pollution-fresno-us-environmental-protection-agency-6adbf4d1a2879530089b35a260ade6fe,notes,idate
+Headline,AP Politics,South Carolina US House district ruled racial gerrymander,https://www.apnews.com/article/politics-south-carolina-state-government-hilton-head-island-charleston-9f48c6c7668b7b9404a7a9335d3a195a,notes,idate
+Headline,AP Politics,California’s Newsom to launch 2nd term with contrast to GOP,https://www.apnews.com/article/biden-politics-california-gavin-newsom-sacramento-91abbc21ec3a41e13c8b654058e22398,notes,idate
+Headline,AP Politics,"Biden toughens border, offers legal path for 30,000 a month",https://www.apnews.com/article/politics-mexico-immigration-af0643a4fb8f45388fe247e44c9b2c5e,notes,idate
+Headline,AP Politics,Ex-lawmaker’s final vote questioned after move from Vegas,https://www.apnews.com/article/politics-las-vegas-nevada-california-6ce78b413889d79041c1281f80110346,notes,idate
+Headline,AP Politics,3 GOP Indiana governor hopefuls all have millions in bank,https://www.apnews.com/article/politics-indiana-eric-holcomb-909b78c74504b93f9bae4ca7d05ea7bb,notes,idate
+Headline,AP US,"2 years after Jan. 6, speaker scrap freezes Congress again",https://www.apnews.com/article/jan6-capitol-riots-second-anniversary-8014969520b61bf7f4d86689fc16e7f7,notes,idate
+Headline,AP US,Cubans crossing into US stunned to hear of new asylum limits,https://www.apnews.com/article/biden-politics-mexico-united-states-government-70f9516a689fa26a41af184ec76e9527,notes,idate
+Headline,AP US,"Democratic officials’ homes, offices shot up in New Mexico",https://www.apnews.com/article/politics-albuquerque-new-mexico-state-government-831e1d985a1795eea69ac6489f0698ed,notes,idate
+Headline,AP US,‘Real Housewives of Salt Lake City’ member gets 6 1/2 years,https://www.apnews.com/article/fraud-park-city-7b2be37b6ef11f380077726c919ec9ef,notes,idate
+Headline,AP US,Border bishop takes lead role in Catholic migrant ministry,https://www.apnews.com/article/religion-el-paso-mexico-immigration-shelters-c6a8684760041691c68b4c6b3274db96,notes,idate
+Headline,AP US,"As speaker bid falters, mixed views of McCarthy in hometown",https://www.apnews.com/article/politics-bakersfield-california-kevin-mccarthy-congress-5e355091d9f308b1b93a9faaec610d5a,notes,idate
+Headline,AP US,Warning about aquifer’s decline sets up big fight in Kansas,https://www.apnews.com/article/politics-kansas-business-climate-and-environment-51bd4d855972c192e2c3d0187abb5f1e,notes,idate
+Headline,AP US,Alex Jones lawyer suspended 6 months over records release,https://www.apnews.com/article/legal-proceedings-fraud-crime-connecticut-texas-2c5bca5300b2bda02b60f6181632be6d,notes,idate
+Headline,AP World,Mexico gives account of violence after ‘Chapo’ son nabbed,https://www.apnews.com/article/politics-united-states-government-mexico-drug-crimes-city-d74ba460138c067ca538c862e3f0a5b0,notes,idate
+Headline,AP World,China seeks to minimize COVID-19 risk during travel rush,https://www.apnews.com/article/politics-health-china-government-philippines-89822deed22950db4e9b6c5e9c675414,notes,idate
+Headline,AP World,EXPLAINER: Is China sharing enough COVID-19 information?,https://www.apnews.com/article/china-covid19-data-sharing-77a28c2fc02f4c01774db8836762b608,notes,idate
+Headline,AP World,"Prince Harry’s book exposes grief, war, drugs, family rifts",https://www.apnews.com/article/prince-harry-book-details-ce879703cbc92372e4736313c6cab941,notes,idate
+Headline,AP World,Kremlin-ordered truce is uncertain amid mutual mistrust,https://www.apnews.com/article/russia-ukraine-war-kremlin-ordered-truce-650d6c7930c80e61763a672d05757da8,notes,idate
+Headline,AP World,"Harry’s claim he killed 25 in Afghanistan draws anger, worry",https://www.apnews.com/article/prince-harry-afghanistan-service-claims-1c497d35a8211dc0366429856a539e2a,notes,idate
+Headline,AP World,South Sudan union says journalists detained over viral video,https://www.apnews.com/article/politics-south-sudan-government-3b5dd2a04c0dd11cf0f0098f24278ce8,notes,idate
+Headline,AP World,Romania seizes more cars in Tate case; court next week,https://www.apnews.com/article/romania-government-bucharest-business-crime-3458065c0350ec217a21c627f725272c,notes,idate
+Headline,NYT Selenium,"No Deal Yet on Speaker, McCarthy Tells G.O.P.; House Votes for 12th Time",https://www.nytimes.com/live/2023/01/06/us/house-speaker-vote-mccarthy,,idate
+Headline,NYT Selenium,Analysis: Kevin McCarthy is letting the far right disrupt the House — and hold him hostage to their demands.,https://www.nytimes.com/2023/01/06/us/politics/mccarthy-house-speaker-republicans.html,,idate
+Headline,NYT Selenium,We’re tracking every lawmaker’s vote here.,https://www.nytimes.com/interactive/2023/01/04/us/politics/house-speaker-vote-tally.html,,idate
+Headline,NYT Selenium,,https://www.nytimes.com/live/2023/01/06/business/jobs-report-december-economy,,idate
+Headline,NYT Selenium,,https://www.nytimes.com/live/2023/01/06/business/jobs-report-december-economy/jobs-december-sectors,,idate
+Headline,NYT Selenium,,https://www.nytimes.com/2023/01/06/business/markets-stocks-jobs-inflation.html,,idate
+Headline,NYT Selenium,,https://www.nytimes.com/2023/01/06/sports/football/damar-hamlin-bills-update.html,,idate
+Headline,NYT Selenium,,https://www.nytimes.com/2023/01/05/sports/football/damar-hamlin-response-audio-recording.html,,idate
+Headline,NYT Selenium,,https://www.nytimes.com/2023/01/06/us/idaho-killings-investigation.html,,idate
+Headline,NYT Selenium,,https://www.nytimes.com/2023/01/06/science/robots-artificial-intelligence-consciousness.html,,idate
+Headline,NYT Selenium,,https://www.nytimes.com/2023/01/06/us/politics/jan-6-capitol-riots-prosecutions.html,,idate
+Headline,NYT Selenium,,https://www.nytimes.com/live/2023/01/06/world/russia-ukraine-news,,idate
+Headline,NYT Selenium,,https://www.nytimes.com/live/2023/01/06/world/russia-ukraine-news/ukraine-says-recent-pledges-show-that-key-weapons-are-no-longer-taboo-for-its-allies,,idate
+Headline,NYT Selenium,,https://www.nytimes.com/2023/01/06/us/widen-highways-traffic.html,,idate
+Headline,NYT Selenium,,https://www.nytimes.com/2023/01/06/sports/basketball/donovan-mitchell-50-point-games.html,,idate
+Headline,NYT Selenium,,https://www.nytimes.com/2023/01/06/us/california-storms-trees.html,,idate
+Headline,NYT Selenium,,https://www.nytimes.com/article/california-weather-forecast-rain-wind.html,,idate
+Headline,NYT Selenium,,https://www.nytimes.com/interactive/2023/01/05/movies/critics-oscar-nominees-ballot.html,,idate
+Headline,NYT Selenium,,https://www.nytimes.com/2023/01/06/opinion/house-speaker-kevin-mccarthy.html,,idate
+Headline,NYT Selenium,,https://www.nytimes.com/2023/01/06/opinion/kruse-zelizer-myth-history.html,,idate
+Headline,NYT Selenium,,https://www.nytimes.com/2023/01/06/opinion/lgbtq-rights-activism-alabama.html,,idate
+Headline,NYT Selenium,,https://www.nytimes.com/2023/01/05/opinion/america-kevin-mccarthy-great.html,,idate
+Headline,NYT Selenium,,https://www.nytimes.com/2023/01/06/opinion/mentally-ill-new-york.html,,idate
+Headline,NYT Selenium,,https://www.nytimes.com/2023/01/06/opinion/ezra-klein-podcast-gary-marcus.html,,idate
+Headline,NYT Selenium,,https://www.nytimes.com/2023/01/06/opinion/afghanistan-family-war.html,,idate
+Headline,NYT Selenium,,https://www.nytimes.com/2023/01/06/opinion/pope-benedict-legacy.html,,idate
+Headline,NYT Selenium,,https://www.nytimes.com/2023/01/06/us/politics/drone-civilian-deaths-afghanistan.html,,idate
+Headline,NYT Selenium,,https://www.nytimes.com/2023/01/06/business/southwest-airlines-customer-costs.html,,idate
+Headline,NYT Selenium,,https://www.nytimes.com/2023/01/06/climate/epa-soot-pollution-biden.html,,idate
+Headline,NYT Selenium,,https://www.nytimes.com/article/lottery-jackpots-history.html,,idate
+Headline,NYT Selenium,,https://www.nytimes.com/interactive/2021/us/covid-cases.html,,idate
+Headline,NYT Selenium,,https://www.nytimes.com/2023/01/05/arts/design/columbia-business-school-diller-scofidio-renfro-kravis-geffen.html,,idate
+Headline,NYT Selenium,,https://theathletic.com/4046216/2023/01/06/colts-jim-irsay-jeff-saturday-frank-reich/,,idate
+Headline,NYT Selenium,,https://theathletic.com/4061905/2023/01/05/texas-chris-beard-firing/,,idate
+Headline,NYT Selenium,,https://theathletic.com/4060678/2023/01/06/ottawa-senators-sale-new-ownership/,,idate
+Headline,NYT Selenium,,https://theathletic.com/4060678/2023/01/06/ottawa-senators-sale-new-ownership/,,idate
+Headline,Politico,Miami Democrats face internal feud after disastrous 2022 midterms,https://subscriber.politicopro.com/article/2023/01/miami-democrats-face-internal-feud-after-disastrous-2022-midterms-00076758,"Ten of county party's 257 officials calling for statewide party to conduct an audit.
+",01/06/23 12:17 PM EST
+Headline,Politico,Decision day for lecanemab,https://www.politico.com/newsletters/prescription-pulse/2023/01/06/decision-day-for-lecanemab-00076660,"Should lecanemab receive a green light from the FDA, it would be the second new Alzheimer’s therapy to come to market in two years.
+",01/06/23 12:00 PM EST
+Headline,Politico,Disasters are a disability issue,https://www.politico.com/newsletters/the-long-game/2023/01/06/disasters-are-a-disability-issue-00076713,"Advocates have been trying for years to draw attention to the harsh conditions that people with disabilities face after natural disasters. New federal data shows that the suffering is worse than anyone could have imagined.
+",01/06/23 12:00 PM EST
+Headline,Politico,A Capitol window smasher and a Pelosi desk squatter go to trial,https://www.politico.com/news/2023/01/06/a-capitol-window-smasher-and-pelosi-desk-squatter-go-to-trial-00076763,"Two years after the ransacking of the Capitol, some of the highest profile defendants will finally face a jury.
+",01/06/23 11:54 AM EST
+Headline,Politico,FDA advisers to discuss over-the-counter overdose reversal drug,https://fda.agencyiq.com/article/2023/01/06/fda-advisers-to-discuss-over-the-counter-overdose-reversal-drug-00076750,"Two advisory committee groups will convene in February to discuss Emergent BioSolutions’ application for a nonprescription version of its naloxone nasal spray.
+",01/06/23 11:22 AM EST
+Headline,Politico,Families read names of fallen Jan. 6 officers on 2-year anniversary of Capitol riot,https://www.politico.com/video/2023/01/06/families-read-names-of-fallen-jan-6-officers-on-2-year-anniversary-of-capitol-riot-809087,,01/06/23 11:14 AM EST
 Headline,Politico,Two takes on the transformation of Elise Stefanik,https://www.politico.com/newsletters/women-rule/2023/01/06/two-takes-on-the-transformation-of-elise-stefanik-00076742,,01/06/23 11:09 AM EST
 Headline,Politico,Fourth day of speaker crisis collides with Jan. 6 anniversary,https://subscriber.politicopro.com/article/2023/01/fourth-day-of-speaker-race-collides-with-jan-6-anniversary-00076738,"The House is submerged in a different breed of gridlock two years to the day after a violent riot shook the Capitol.
 ",01/06/23 11:09 AM EST
@@ -21,38 +92,23 @@ Headline,Politico,EPA tiptoes to tighter soot standards,https://subscriber.polit
 Headline,Politico,Is the new Omicron subvariant cause for concern?,https://www.politico.com/newsletters/politico-pulse/2023/01/06/is-the-new-omicron-subvariant-cause-for-concern-00076705,"Pulse spoke with two infectious disease experts about what XBB.1.5 means for the country and how we got here.
 ",01/06/23 10:00 AM EST
 Headline,Politico,"3 amigos, 11 ballots, nothing spared",https://www.politico.com/newsletters/global-insider/2023/01/06/3-amigos-11-ballots-nothing-spared-00076727,,01/06/23 09:30 AM EST
-Headline,Politico,"U.S. hiring stays brisk as employers add 223,000 jobs",https://www.politico.com/news/2023/01/06/us-hiring-stays-brisk-as-employers-add-223-000-jobs-00076734,"The December job growth, though a decent gain, amounted to the lowest monthly increase in two years.
-",01/06/23 09:27 AM EST
-Headline,Politico,New letters shed light on death in Alzheimer’s drug trial,https://fda.agencyiq.com/article/2023/01/06/new-letters-shed-light-on-death-in-alzheimers-drug-trial-00076433,"One of the patients died after receiving treatment for a stroke, which occurred shortly after her third infusion of lecanemab.
-",01/06/23 09:27 AM EST
-Headline,Politico,"FDA stays the course on abortion pills, rejecting demands from the left and right",https://fda.agencyiq.com/article/2023/01/06/fda-stays-the-course-on-abortion-pills-rejecting-demands-from-the-left-and-right-00076736,"“Your petition does not provide any new data or evidence,” wrote FDA's Patrizia Cavazzoni.
-",01/06/23 09:24 AM EST
-Headline,Politico,A silver lining to California’s storms,https://www.politico.com/newsletters/california-playbook/2023/01/06/a-silver-lining-to-californias-storms-00076726,,01/06/23 09:12 AM EST
-Headline,Politico,The forgotten ‘stolen’ election that poisoned politics,https://www.politico.com/newsletters/politico-weekend/2023/01/06/the-forgotten-stolen-election-that-poisoned-politics-00076628,"The 1984 race for Indiana’s ‘Bloody 8th’ trained a generation of politicians in the scorched-earth tactics of recounts. Its legacy lives on in Trump’s ‘stop the steal’ rhetoric.
-",01/06/23 09:06 AM EST
-Headline,Politico,"Illinois House passes assault gun bill
-",https://www.politico.com/newsletters/illinois-playbook/2023/01/06/a-green-light-for-illinois-red-flag-bill-00076730,,01/06/23 09:02 AM EST
-Headline,Reuters Biz,"Exclusive: TikTok freezes hiring for U.S. security deal as opposition mounts, article with imageTechnologycategory · January 6, 2023 · 10:09 AM UTCTikTok has stopped a hiring process for consultants that would help it implement a potential security agreement with the United States, according to two people familiar with the matter, as opposition to such a deal among U.S. officials grows.",https://www.reuters.comNone,notes,idate
-Headline,Reuters Biz,"ChargedcategoryTesla slashes prices in China, other Asian markets as sales stumble, article with image4:13 PM UTC . Updated undefined ago",https://www.reuters.comNone,notes,idate
-Headline,Reuters Biz,"Macro MatterscategoryU.S. job growth solid in December; wage growth slows, article with image3:05 PM UTC",https://www.reuters.comNone,notes,idate
-Headline,Reuters Biz,"GalleryChargedcategoryExclusive: Renault considers making mass-market EVs in India -sources, article with gallery1:46 PM UTC",https://www.reuters.comNone,notes,idate
-Headline,Reuters Biz,"GalleryBusinesscategoryMixed emotions as McDonald's leaves Kazakhstan, article with gallery4:10 PM UTC . Updated undefined ago",https://www.reuters.comNone,notes,idate
-Headline,Reuters Biz,"GalleryTechnologycategoryU.S. securities regulator probes FTX investors' due diligence -sources, article with gallery5:59 AM UTC",https://www.reuters.comNone,notes,idate
-Headline,Reuters Biz,"MarketscategoryU.S. service sector contracts in December, price increases slow - ISM survey, article with image3:03 PM UTC",https://www.reuters.comNone,notes,idate
-Headline,Reuters Biz,"Exploration & ProductioncategoryOil jumps on weaker U.S. dollar, jobs report, article with image3:01 PM UTC",https://www.reuters.comNone,notes,idate
-Headline,Reuters Tech,"TechnologycategoryExclusive: TikTok freezes hiring for U.S. security deal as opposition mounts, article with image10:09 AM UTC",https://www.reuters.comNone,notes,idate
-Headline,Reuters Tech,"TechnologycategoryWho is Alex Mashinsky, the man behind the alleged Celsius crypto fraud?, article with imageJanuary 5, 2023",https://www.reuters.comNone,notes,idate
-Headline,Reuters Tech,"DisruptedcategoryQualcomm, Iridium partner to bring satellite-based messaging to Android phones, article with imageJanuary 5, 2023",https://www.reuters.comNone,notes,idate
-Headline,Reuters Tech,"TechnologycategoryTwitter hacked, 200 million user email addresses leaked, researcher says, article with image1:52 AM UTC",https://www.reuters.comNone,notes,idate
-Headline,Reuters Tech,"World at WorkcategoryBig tech layoffs may further disrupt equity and diversity efforts, article with imageJanuary 5, 2023",https://www.reuters.comNone,notes,idate
-Headline,Reuters Tech,"WorldcategoryIran says it foiled cyberattack on central bank, article with image9:32 AM UTC",https://www.reuters.comNone,notes,idate
-Headline,Reuters Tech,"GalleryFuture of MoneycategoryCrypto firms off to rocky start in 2023 with outflows, layoffs and a lawsuit, article with galleryJanuary 5, 2023",https://www.reuters.comNone,notes,idate
-Headline,Reuters Tech,"TechnologycategoryWhatsApp announces new proxy support feature to bypass internet shutdowns, article with imageJanuary 5, 2023",https://www.reuters.comNone,notes,idate
-Headline,Reuters World,"At least 29 killed during Mexico capture of El Chapo's son, article with imageAmericascategory · January 6, 2023 · 3:39 PM UTC · undefined agoNineteen suspected gang members and 10 military personnel were killed in a wave of violence surrounding the arrest of Mexican drug cartel boss Ovidio Guzman in the northern state of Sinaloa, Defense Minister Luis Cresencio Sandoval said on Friday.",https://www.reuters.comNone,notes,idate
-Headline,Reuters World,"GalleryAmericascategoryMexico captures son of 'El Chapo' sparking wave of violence, article with gallery8:37 AM UTC",https://www.reuters.comNone,notes,idate
-Headline,Reuters World,"GalleryAmericascategory'We threw ourselves to the floor': Mexican passenger plane caught in cartel crossfire, article with gallery5:54 AM UTC",https://www.reuters.comNone,notes,idate
+Headline,Reuters Breaking,Chip woes short-circuit Samsung's best laid plans,https://www.reuters.com/breakingviews/,notes,3:31 AM UTC
+Headline,Reuters Breaking,India’s Vodafone stress test may have ugly results,https://www.reuters.com/breakingviews/,notes,3:22 AM UTC
+Headline,Reuters Breaking,Crypto bank run vindicates watchdogs’ vigilance,https://www.reuters.com/breakingviews/,notes,"January 5, 2023"
+Headline,Reuters Breaking,Amazon: it’s just like them,https://www.reuters.com/breakingviews/,notes,"January 5, 2023"
+Headline,Reuters Breaking,Stellantis keeps feet on ground in air taxi punt,https://www.reuters.com/breakingviews/,notes,"January 5, 2023"
+Headline,Reuters Breaking,EU is stuck playing catch-up with Amazon and Apple,https://www.reuters.com/breakingviews/,notes,"January 5, 2023"
+Headline,Reuters Legal,"Samsung, Nanoco settle patent dispute over LED TVs just before trial",https://www.reuters.com/tags/patent/,notes,4:25 PM UTC
+Headline,Reuters Legal,Exclusive: TikTok freezes consultant hiring for U.S. security deal as opposition mounts,https://www.reuters.com/technology/,notes,4:27 PM UTC
+Headline,Reuters Legal,Law firm Goodwin Procter cuts lawyers and staff amid shrinking demand,https://www.reuters.com/tags/legal-industry/,notes,"January 5, 2023"
+Headline,Reuters Legal,Former U.S. Senator Burr says SEC has closed probe concerning him without action,https://www.reuters.com/world/,notes,4:08 PM UTC
+Headline,Reuters Legal,S. Carolina court nixes 6-week abortion ban; Idaho judges uphold restrictions,https://www.reuters.com/world/,notes,12:41 AM UTC
+Headline,Reuters Legal,Twitter hires law firm denounced by CEO Elon Musk,https://www.reuters.com/tags/technology/,notes,"January 5, 2023"
+Headline,Reuters World,"At least 29 killed in Mexico capture of Chapo's son; U.S. extradition not guaranteed, article with imageAmericascategory · January 6, 2023 · 5:05 PM UTC · undefined agoNineteen suspected gang members and 10 military personnel were killed in a wave of violence surrounding the arrest of Mexican drug cartel boss Ovidio Guzman in the northern state of Sinaloa, Defense Minister Luis Cresencio Sandoval said on Friday.",https://www.reuters.comNone,notes,idate
 Headline,Reuters World,"United StatescategoryU.S. House brawl over McCarthy raises worries about Republican governance, article with image11:07 AM UTC",https://www.reuters.comNone,notes,idate
-Headline,Reuters World,"EuropecategoryExclusive: Russian hackers targeted U.S. nuclear scientists, article with image2:47 PM UTC",https://www.reuters.comNone,notes,idate
-Headline,Reuters World,"GalleryEuropecategorySigns of fighting after Russia says unilateral truce comes into force in Ukraine, article with gallery2:28 PM UTC",https://www.reuters.comNone,notes,idate
-Headline,Reuters World,"GalleryEuropecategoryOld Nazi map sparks treasure hunt in the Netherlands, article with gallery11:27 AM UTC",https://www.reuters.comNone,notes,idate
+Headline,Reuters World,"EuropecategoryExclusive: Russian hackers targeted U.S. nuclear scientists, article with image4:47 PM UTC",https://www.reuters.comNone,notes,idate
+Headline,Reuters World,"GalleryAmericascategory'We threw ourselves to the floor': Mexican passenger plane caught in cartel crossfire, article with gallery5:54 AM UTC",https://www.reuters.comNone,notes,idate
+Headline,Reuters World,"GalleryAmericascategoryMexico captures son of 'El Chapo' sparking wave of violence, article with gallery8:37 AM UTC",https://www.reuters.comNone,notes,idate
+Headline,Reuters World,"GalleryEuropecategoryShells fly at Ukraine front despite Russia's claimed Christmas ceasefire, article with gallery4:57 PM UTC . Updated undefined ago",https://www.reuters.comNone,notes,idate
+Headline,Reuters World,"United StatescategoryMcCarthy predicts progress with Republicans in U.S. House leadership standoff, article with image5:25 PM UTC . Updated undefined ago",https://www.reuters.comNone,notes,idate
 Headline,Reuters World,"GalleryAmericascategoryMexican cartel leader dies in shootout after mass jail break, article with galleryJanuary 5, 2023",https://www.reuters.comNone,notes,idate

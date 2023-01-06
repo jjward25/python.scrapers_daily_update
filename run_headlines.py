@@ -5,6 +5,7 @@ import pandas as pd
 from pkg_headlines.appolitics import *
 from pkg_headlines.apus import *
 from pkg_headlines.apworld import *
+from pkg_headlines.lemonde import *
 from pkg_headlines.nyt import *
 from pkg_headlines.politico import *
 from pkg_headlines.reuters_breaking import *
