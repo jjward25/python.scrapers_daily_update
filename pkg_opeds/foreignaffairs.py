@@ -37,8 +37,7 @@ except:
 
 ## Actual HTML pull
 object_list = [] 
-for item in driver.find_elements(By.CLASS_NAME,'article-data')[0:10]:
-    print(item)
+for item in driver.find_elements(By.XPATH,'//article[@class="browse-list-item container"]')[0:10]:
     if item.find_element(By.CLASS_NAME,"publication-date").text in date_list:
         title = item.find_element(By.XPATH,'//h2[@class="title ls-0 mb-0 mt-2"]').text
         #print(title)
@@ -51,7 +50,7 @@ for item in driver.find_elements(By.CLASS_NAME,'article-data')[0:10]:
     ## IF statement above pulls in anything within the listed date range.  Below checks if that received anything, and 
     ## is meant to pull in the most recent record if none are within the date range, so we know if the code is broken or if there's just nothing new
 if len(object_list) == 0:
-    item = driver.find_element(By.CLASS_NAME,'article-data')
+    item = driver.find_element(By.XPATH,'//article[@class="browse-list-item container"]')
     title = item.find_element(By.XPATH,'//h2[@class="title ls-0 mb-0 mt-2"]').text
     #print(title)
     ilink = item.find_element(By.TAG_NAME,"a").get_attribute("href")
