@@ -1,22 +1,20 @@
 import os
-import glob
 import pandas as pd
-#os.chdir(r"C:\Users\Josep\OneDrive\Desktop\Coding\python.ca-scrapers")
+import glob
 
-#extension = 'csv'
-#all_filenames = [i for i in glob.glob('*.{}'.format(extension))]
-
-# Modules
 from run_gov import *
 from run_opeds import *
-#from run_stembiz import *
+from run_headlines import *
+from run_stembiz import *
 
-combined_list = [gov_df,opeds_df]
-#hud_df
+path = './'
+all_files = glob.glob(os.path.join(path, "*.csv"))
+writer = pd.ExcelWriter('out.xlsx', engine='xlsxwriter')
 
-combined_df = pd.concat(combined_list)
-#print(combined_df)
-print(combined_df)
-combined_df.to_csv(r'combined.csv',index=False)
-combined_df.to_clipboard()
+for f in all_files:
+    df = pd.read_csv(f)
+    df.to_excel(writer, sheet_name=os.path.splitext(os.path.basename(f))[0], index=False)
 
+writer.close()
+
+os.system("start EXCEL.EXE out.xlsx")
