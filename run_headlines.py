@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup  ## BeautifulSoup is a web parsing package to help
 from datetime import date
 import pandas as pd
 
+from pkg_headlines.aljazeera import *
 from pkg_headlines.appolitics import *
 from pkg_headlines.apus import *
 from pkg_headlines.apworld import *
@@ -14,7 +15,7 @@ from pkg_headlines.reuters_world import *
 
 
 #combine all files in the list
-df_list = [appolitics_df,apus_df,apworld_df,nyt_selenium_df,politico_df,reuters_breaking_df,reuters_legal_df,reuters_world_df]
+df_list = [aljazeera_df,appolitics_df,apus_df,apworld_df,nyt_selenium_df,politico_df,reuters_breaking_df,reuters_legal_df,reuters_world_df]
 headlines_df = pd.concat(df_list)
 #print(combined_df)
 print(headlines_df)
