@@ -53,7 +53,7 @@ def ars_scrape():
                 title = item.find('a').get_text()
                 ilink = item.find('a').get('href')  
                 #notes = item.find(class_='tease').get_text().lstrip('\n')
-                idate = item.find('time').get_text().partition(',')[1]
+                idate = postdate
                 obj_data = {'type':'Headline','source':'Ars Technica', 'title': title, 'link': ilink, 'Notes': '', 'date': idate}
                 object_list.append(obj_data)
 

@@ -70,7 +70,7 @@ foreign_affairs_df = foreign_affairs_df
 ##** Error Handling for empty result
 if len(foreign_affairs_df) == 0:
     print('No Result')
-    obj_list = [{'type':'Government','source':'Foreign Affairs', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
+    obj_list = [{'type':'Op Ed','source':'Foreign Affairs', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
     foreign_affairs_df = pd.DataFrame(obj_list)
 
 print(foreign_affairs_df)

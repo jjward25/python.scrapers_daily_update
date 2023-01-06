@@ -8,15 +8,15 @@ import pandas as pd
 
 # Modules
 from run_gov import *
-from run_headlines import *
 from run_opeds import *
 #from run_stembiz import *
 
-combined_df = pd.DataFrame()
-combined_df = combined_df.append(gov_df)
+combined_list = [gov_df,opeds_df]
+#hud_df
 
+combined_df = pd.concat(combined_list)
+#print(combined_df)
+print(combined_df)
+combined_df.to_csv(r'combined.csv',index=False)
+combined_df.to_clipboard()
 
-#combine all files in the list
-combined_csv = pd.concat([pd.read_csv(f) for f in all_filenames ])
-#export to csv
-combined_csv.to_csv( "combined.csv", index=False, encoding='utf-8-sig')

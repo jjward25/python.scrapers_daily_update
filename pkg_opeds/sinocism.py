@@ -25,7 +25,7 @@ try:
     page.raise_for_status()
 except:
     print('URL Broken')
-    obj_list = [{'type':'Headline','source':'Sinocism', 'title': 'Link Broken', 'link': '', 'Notes': '', 'date': ''}]
+    obj_list = [{'type':'Op Ed','source':'Sinocism', 'title': 'Link Broken', 'link': '', 'Notes': '', 'date': ''}]
     sinocism_df = pd.DataFrame(obj_list)
     
 ## Parse the webpage
@@ -41,7 +41,7 @@ for item in soup.find_all(class_='post-preview-content')[0:5]:
     #notes = item.find(class_='tease').get_text().lstrip('\n')
     idate = item.find('time').get_text()
 
-    obj_data = {'type':'Headline','source':'Sinocism', 'title': title, 'link': ilink, 'Notes': '', 'date': idate}
+    obj_data = {'type':'Op Ed','source':'Sinocism', 'title': title, 'link': ilink, 'Notes': '', 'date': idate}
     object_list.append(obj_data)
 
 ## Final dataframe is defined
@@ -50,7 +50,7 @@ sinocism_df = pd.DataFrame(object_list).head(8)
     ##** Error Handling for empty result
 if len(sinocism_df) == 0:
     print('No Results')
-    obj_list = [{'type':'Headline','source':'Sinocism', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
+    obj_list = [{'type':'Op Ed','source':'Sinocism', 'title': 'Data List Empty', 'link': '', 'Notes': 'No Results', 'date': ''}]
     sinocism_df = pd.DataFrame(obj_list)
 ## Final Return Statement
 print(sinocism_df)

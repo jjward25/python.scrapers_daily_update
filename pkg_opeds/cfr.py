@@ -63,7 +63,7 @@ cfr_df = pd.DataFrame(object_list)
 ##** Error Handling for empty result
 if len(cfr_df) == 0:
     print('No Result')
-    obj_list = [{'type':'Government','source':'CFR', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
+    obj_list = [{'type':'Op Ed','source':'CFR', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
     cfr_df = pd.DataFrame(obj_list)
 
 print(cfr_df)

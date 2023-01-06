@@ -25,7 +25,7 @@ try:
     page.raise_for_status()
 except:
     print('URL Broken')
-    obj_list = [{'type':'Headline','source':'Stratechery', 'title': 'Link Broken', 'link': '', 'Notes': '', 'date': ''}]
+    obj_list = [{'type':'Op Ed','source':'Stratechery', 'title': 'Link Broken', 'link': '', 'Notes': '', 'date': ''}]
     stratechery_df = pd.DataFrame(obj_list)
     
 ## Parse the webpage
@@ -41,7 +41,7 @@ for item in soup.find_all(class_='entry-header'):
     #notes = item.find(class_='tease').get_text().lstrip('\n')
     idate = item.find('time').get_text().partition(', ')[2]
 
-    obj_data = {'type':'Headline','source':'Stratechery', 'title': title, 'link': ilink, 'Notes': '', 'date': idate}
+    obj_data = {'type':'Op Ed','source':'Stratechery', 'title': title, 'link': ilink, 'Notes': '', 'date': idate}
     object_list.append(obj_data)
 
 ## Final dataframe is defined
@@ -50,7 +50,7 @@ stratechery_df = pd.DataFrame(object_list).head(8)
     ##** Error Handling for empty result
 if len(stratechery_df) == 0:
     print('No Results')
-    obj_list = [{'type':'Headline','source':'Stratechery', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
+    obj_list = [{'type':'Op Ed','source':'Stratechery', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
     stratechery_df = pd.DataFrame(obj_list)
 ## Final Return Statement
 print(stratechery_df)

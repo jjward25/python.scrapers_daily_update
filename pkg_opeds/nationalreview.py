@@ -89,7 +89,7 @@ national_review_df = national_review_df.head()
 ##** Error Handling for empty result
 if len(national_review_df) == 0:
     print('No Result')
-    obj_list = [{'type':'Government','source':'Defense Dept', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
+    obj_list = [{'type':'Op Ed','source':'Defense Dept', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
     national_review_df = pd.DataFrame(obj_list)
 
 print(national_review_df)
