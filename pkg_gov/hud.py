@@ -33,26 +33,25 @@ except:
 ## Parse the webpage
 page = requests.get(link, headers=headers)
 soup = BeautifulSoup(page.content, 'lxml')
-
+#print(soup.find(class_='col-md-12').find_all('p'))
 ## Actual HTML pull
 object_list = []
-for item in range(10):
-
-    title = soup.find(class_='col-md-12').find_all('a')[item].get_text()
-    ilink = "https://www.hud.gov" + soup.find(class_='col-md-12').find_all('a')[item].get('href')
-    #notes = item.find()
-    idate = soup.find(class_='col-md-12').find_all('p')[item].get_text().partition(',')[2].partition('\n')[0]
-
-    if idate in date_list:
-        obj_data = {'type':'Government','source':'HUD Dept', 'title': title, 'link': ilink, 'Notes': 'notes', 'date': idate}
-        object_list.append(obj_data)
-
-if len(object_list) == 0:   
-    for item in range(1):
-        title = soup.find(class_='col-md-12').find_all('a')[item].get_text()
-        ilink = "https://www.hud.gov" + soup.find(class_='col-md-12').find_all('a')[item].get('href')
+for item in soup.find(class_='col-md-12').find_all('p'):
+    if type(item.find('a')) != type(None):
+        title = item.find('a').get_text()
+        ilink = "https://www.hud.gov" + item.find('a').get('href')
         #notes = item.find()
-        idate = soup.find(class_='col-md-12').find_all('p')[item].get_text().partition(',')[2].partition('\n')[0]
+        idate = item.get_text().partition(', ')[2].partition('\n')[0]
+        if idate in date_list:
+            obj_data = {'type':'Government','source':'HUD Dept', 'title': title, 'link': ilink, 'Notes': 'notes', 'date': idate}
+            object_list.append(obj_data)
+# if none in date range, pull the top result
+if len(object_list) == 0:   
+    for item in soup.find(class_='col-md-12').find('p'):
+        title = item.find('a').get_text()
+        ilink = "https://www.hud.gov" + item.find('a').get('href')
+        #notes = item.find()
+        idate = item.get_text().partition(', ')[2].partition('\n')[0]
         obj_data = {'type':'Government','source':'HUD Dept', 'title': title, 'link': ilink, 'Notes': 'Query Working, No New Posts', 'date': idate}
         object_list.append(obj_data)
 
