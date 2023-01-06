@@ -30,7 +30,7 @@ try:
         #time.sleep(50)
     except:
         print('URL Broken')
-        obj_list = [{'type':'Government','source':'Bloomberg', 'title': 'Driver or Link Issue', 'link': '', 'Notes': '', 'date': ''}]
+        obj_list = [{'type':'STEMBiz','source':'Bloomberg', 'title': 'Driver or Link Issue', 'link': '', 'Notes': '', 'date': ''}]
         bloomberg_df = pd.DataFrame(obj_list)    
     ## Actual HTML pull
     object_list = [] 
@@ -41,7 +41,7 @@ try:
         #notes = item.find()
         #idate = item.find_element(By.TAG_NAME,"time").text[:-15]
         #print(idate)
-        obj_data = {'type':'Headline','source':'Bloomberg', 'title': title, 'link': ilink, 'Notes': '', 'date': 'idate'}
+        obj_data = {'type':'STEMBiz','source':'Bloomberg', 'title': title, 'link': ilink, 'Notes': '', 'date': 'idate'}
         object_list.append(obj_data)
         ## IF statement above pulls in anything within the listed date range.  Below checks if that received anything, and 
         ## is meant to pull in the most recent record if none are within the date range, so we know if the code is broken or if there's just nothing new
@@ -51,7 +51,7 @@ try:
         #notes = item.find()
         #idate = item.find_element(By.TAG_NAME,"time").text[:-15]
         #print(idate)
-        obj_data = {'type':'Headline','source':'Bloomberg', 'title': title, 'link': ilink, 'Notes': 'Query Worked', 'date': 'idate'}
+        obj_data = {'type':'STEMBiz','source':'Bloomberg', 'title': title, 'link': ilink, 'Notes': 'Query Worked', 'date': 'idate'}
         object_list.append(obj_data)
 
 
@@ -62,11 +62,11 @@ try:
     ##** Error Handling for empty result
     if len(bloomberg_df) == 0:
         print('No Result')
-        obj_list = [{'type':'Government','source':'Bloomberg', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
+        obj_list = [{'type':'STEMBiz','source':'Bloomberg', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
         bloomberg_df = pd.DataFrame(obj_list)
 
     print(bloomberg_df)
 except:
-    obj_list = [{'type':'Government','source':'Bloomberg', 'title': 'Suspicious Activity - Req Declined', 'link': '', 'Notes': '', 'date': ''}]
+    obj_list = [{'type':'STEMBiz','source':'Bloomberg', 'title': 'Suspicious Activity - Req Declined', 'link': '', 'Notes': '', 'date': ''}]
     bloomberg_df = pd.DataFrame(obj_list)
     print(bloomberg_df)

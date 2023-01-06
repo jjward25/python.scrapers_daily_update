@@ -14,7 +14,7 @@ try:
     page.raise_for_status()
 except:
     print('URL Broken')
-    obj_list = [{'type':'Headline','source':'AP Business', 'title': 'Link Broken', 'link': '', 'Notes': '', 'date': ''}]
+    obj_list = [{'type':'STEMBiz','source':'AP Business', 'title': 'Link Broken', 'link': '', 'Notes': '', 'date': ''}]
     apbiz_df = pd.DataFrame(obj_list)
     
 ## Parse the webpage
@@ -31,7 +31,7 @@ for item in soup.find_all(class_='CardHeadline'):
     #notes = item.find(class_='summary f-serif ls-0').get_text()
     #idate = item.find(class_='publication-date').get_text()
 
-    obj_data = {'type':'Headline','source':'AP Biz', 'title': title, 'link': ilink, 'Notes': 'notes', 'date': 'idate'}
+    obj_data = {'type':'STEMBiz','source':'AP Biz', 'title': title, 'link': ilink, 'Notes': 'notes', 'date': 'idate'}
     object_list.append(obj_data)
 
 ## Final dataframe is defined
@@ -40,7 +40,7 @@ apbiz_df = pd.DataFrame(object_list).head(8)
 ##** Error Handling for empty result
 if len(apbiz_df) == 0:
     print('No Result')
-    obj_list = [{'type':'Headline','source':'AP Biz', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
+    obj_list = [{'type':'STEMBiz','source':'AP Biz', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
     apbiz_df = pd.DataFrame(obj_list)
 ## Final Return Statement
 print(apbiz_df)

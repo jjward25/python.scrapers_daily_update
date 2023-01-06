@@ -25,7 +25,7 @@ try:
     page.raise_for_status()
 except:
     print('URL Broken')
-    obj_list = [{'type':'Headline','source':'Ars Technica', 'title': 'Link Broken', 'link': '', 'Notes': '', 'date': ''}]
+    obj_list = [{'type':'STEMBiz','source':'Ars Technica', 'title': 'Link Broken', 'link': '', 'Notes': '', 'date': ''}]
     ars_df = pd.DataFrame(obj_list)
     
 ## Parse the webpage
@@ -49,7 +49,7 @@ for item in soup.find_all('header')[0:10]:
             ilink = item.find('a').get('href')  
             #notes = item.find(class_='tease').get_text().lstrip('\n')
             idate = postdate
-            obj_data = {'type':'Headline','source':'Ars Technica', 'title': title, 'link': ilink, 'Notes': '', 'date': idate}
+            obj_data = {'type':'STEMBiz','source':'Ars Technica', 'title': title, 'link': ilink, 'Notes': '', 'date': idate}
             object_list.append(obj_data)
 
 ## Final dataframe is defined
@@ -58,7 +58,7 @@ ars_df = pd.DataFrame(object_list)
     ##** Error Handling for empty result
 if len(ars_df) == 0:
     print('No Results')
-    obj_list = [{'type':'Headline','source':'Ars Technica', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
+    obj_list = [{'type':'STEMBiz','source':'Ars Technica', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
     ars_df = pd.DataFrame(obj_list)
 ## Final Return Statement
 print(ars_df)

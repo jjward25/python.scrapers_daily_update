@@ -15,7 +15,7 @@ try:
     page.raise_for_status()
 except:
     print('URL Broken')
-    obj_list = [{'type':'Headline','source':'Reuters Biz', 'title': 'Link Broken', 'link': '', 'Notes': '', 'date': ''}]
+    obj_list = [{'type':'STEMBiz','source':'Reuters Biz', 'title': 'Link Broken', 'link': '', 'Notes': '', 'date': ''}]
     reuters_biz_df = pd.DataFrame(obj_list)
     
 ## Parse the webpage
@@ -33,8 +33,7 @@ for item in soup.find_all(class_='story-card'):
     ilink = "https://www.reuters.com" + str(item.get('href'))
     #notes = item.find(class_='summary f-serif ls-0').get_text()
     #idate = item.find(class_='publication-date').get_text()
-
-    obj_data = {'type':'Headline','source':'Reuters Biz', 'title': title, 'link': ilink, 'Notes': 'notes', 'date': 'idate'}
+    obj_data = {'type':'STEMBiz','source':'Reuters Biz', 'title': title, 'link': ilink, 'Notes': 'notes', 'date': 'idate'}
     object_list.append(obj_data)
 
 ## Final dataframe is defined
@@ -43,7 +42,8 @@ reuters_biz_df = pd.DataFrame(object_list).head(8)
     ##** Error Handling for empty result
 if len(reuters_biz_df) == 0:
     print('URL Broken')
-    obj_list = [{'type':'Headline','source':'Reuters Biz', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
+    obj_list = [{'type':'STEMBiz','source':'Reuters Biz', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
     reuters_biz_df = pd.DataFrame(obj_list)
 ## Final Return Statement
 print(reuters_biz_df)
+

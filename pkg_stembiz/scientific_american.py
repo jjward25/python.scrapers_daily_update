@@ -14,7 +14,7 @@ try:
     page.raise_for_status()
 except:
     print('URL Broken')
-    obj_list = [{'type':'Headline','source':'Scientific American', 'title': 'Link Broken', 'link': '', 'Notes': '', 'date': ''}]
+    obj_list = [{'type':'STEMBiz','source':'Scientific American', 'title': 'Link Broken', 'link': '', 'Notes': '', 'date': ''}]
     scientific_american_df = pd.DataFrame(obj_list)
     
 ## Parse the webpage
@@ -31,7 +31,7 @@ for item in soup.find_all(class_='listing__body'):
     ilink = item.find('a').get('href')
     notes = item.find(class_='listing__summary').get_text()
     idate = item.find('span').get_text()
-    obj_data = {'type':'Headline','source':'Scientific American', 'title': title, 'link': ilink, 'Notes': notes, 'date': idate}
+    obj_data = {'type':'STEMBiz','source':'Scientific American', 'title': title, 'link': ilink, 'Notes': notes, 'date': idate}
     object_list.append(obj_data)
 
 ## Final dataframe is defined
@@ -40,7 +40,7 @@ scientific_american_df = pd.DataFrame(object_list).head(8)
     ##** Error Handling for empty result
 if len(scientific_american_df) == 0:
     print('URL Broken')
-    obj_list = [{'type':'Headline','source':'Scientific American', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
+    obj_list = [{'type':'STEMBiz','source':'Scientific American', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
     scientific_american_df = pd.DataFrame(obj_list)
 ## Final Return Statement
 print(scientific_american_df)

@@ -15,7 +15,7 @@ try:
     page.raise_for_status()
 except:
     print('URL Broken')
-    obj_list = [{'type':'Headline','source':'Economist', 'title': 'Link Broken', 'link': '', 'Notes': '', 'date': ''}]
+    obj_list = [{'type':'STEMBiz','source':'Economist', 'title': 'Link Broken', 'link': '', 'Notes': '', 'date': ''}]
     economist_df = pd.DataFrame(obj_list)
     
 ## Parse the webpage
@@ -31,7 +31,7 @@ for item in soup.find_all(class_='_result-item')[:10]:
     notes = item.find(class_='_snippet').get_text()
     #idate = item.find(class_='publication-date').get_text()
 
-    obj_data = {'type':'Headline','source':'Economist', 'title': title, 'link': ilink, 'Notes': notes, 'date': 'idate'}
+    obj_data = {'type':'STEMBiz','source':'Economist', 'title': title, 'link': ilink, 'Notes': notes, 'date': 'idate'}
     object_list.append(obj_data)
 
 ## Final dataframe is defined
@@ -40,7 +40,7 @@ economist_df = pd.DataFrame(object_list).head(8)
     ##** Error Handling for empty result
 if len(economist_df) == 0:
     print('URL Broken')
-    obj_list = [{'type':'Headline','source':'Economist', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
+    obj_list = [{'type':'STEMBiz','source':'Economist', 'title': 'Data List Empty', 'link': '', 'Notes': '', 'date': ''}]
     economist_df = pd.DataFrame(obj_list)
 ## Final Return Statement
 print(economist_df)
