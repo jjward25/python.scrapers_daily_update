@@ -21,12 +21,11 @@ from pkg_gov.transportation import *
 from pkg_gov.treasury import *
 from pkg_gov.va import *
 from pkg_gov.whitehouse import *
-#from pkg_gov.hud import *
+from pkg_gov.hud import *
 
 
 #combine all files in the list
-gov_list = [agriculture_df,commerce_dept_df,congress_df,defense_df,education_df,energy_df,hhs_df,homeland_df,interior_df,irs_df,justice_df,labor_df,state_df,supreme_court_df,transportation_df,treasury_df,va_df,white_house_df]
-#hud_df
+gov_list = [agriculture_df,commerce_dept_df,congress_df,defense_df,education_df,energy_df,hhs_df,homeland_df,hud_df,interior_df,irs_df,justice_df,labor_df,state_df,supreme_court_df,transportation_df,treasury_df,va_df,white_house_df]
 
 gov_df = pd.concat(gov_list)
 #print(combined_df)
