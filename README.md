@@ -1,3 +1,3 @@
-# CA-Scrapers
+# Scrapers
  
-For now, just the gov_pkg is available.  The Cabinet and Other folders contain a .py module for each website.  Run gov.py to generate a new gov_data.csv with the aggregated data.
+These use Beautiful Soup and Selenium to pull a range of article headlines across four packages: Government, Headlines, Op Eds, and STEM+Business.
