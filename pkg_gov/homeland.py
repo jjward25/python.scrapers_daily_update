@@ -7,18 +7,13 @@ import requests
 ## General templates to pull from, not all are always used.
 today = date.today()
 yesterday = date.today() - timedelta(1)
-two_ago = date.today() - timedelta(2)
-
 today_date = today.strftime("%Y-%m-%d")
 yesterday_date = yesterday.strftime("%Y-%m-%d")
-two_ago_date = two_ago.strftime("%Y-%m-%d")
 today_word = today.strftime("%B %d, %Y")
 today_word_single_digit_day = today.strftime("%B %d, %Y").replace(" 0", " ")
 yesterday_word = yesterday.strftime("%B %d, %Y")
 yesterday_word_single_digit_day = yesterday.strftime("%B %d, %Y").replace(" 0", " ")
-two_ago_word = two_ago.strftime("%B %d, %Y")
-two_ago_word_single_digit_day = two_ago.strftime("%B %d, %Y").replace(" 0", " ")
-date_list = [today_date,yesterday_date,two_ago_date,today_word,yesterday_word,two_ago_word,today_word_single_digit_day,yesterday_word_single_digit_day,two_ago_word_single_digit_day]
+date_list = [today_date,yesterday_date,today_word,yesterday_word,today_word_single_digit_day,yesterday_word_single_digit_day]
 
 ## Headers is used because a User-Agent was required by the website
 headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46'}

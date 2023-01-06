@@ -8,14 +8,11 @@ import requests
 ## General templates to pull from, not all are always used.
 today = date.today()
 yesterday = date.today() - timedelta(1)
-two_ago = date.today() - timedelta(2)
 today_word = today.strftime("%b %d, %Y").replace('2023','9999').replace("0", "").replace('9999','2023')
 yesterday_word = yesterday.strftime("%b %d, %Y").replace('2023','9999').replace("0", "").replace('9999','2023')
-two_ago_word = two_ago.strftime("%b %d, %Y").replace('2023','9999').replace("0", "").replace('9999','2023')
 today_link = today.strftime("%m/%d/%Y").replace('2023','9999').replace("0", "").replace('9999','2023')
 yesterday_link = yesterday.strftime("%m/%d/%Y").replace('2023','9999').replace("0", "").replace('9999','2023')
-two_ago_link = two_ago.strftime("%m/%d/%Y").replace('2023','9999').replace("0", "").replace('9999','2023')
-date_list = [today_word,yesterday_word,two_ago_word,today_link,yesterday_link,two_ago_link]
+date_list = [today_word,yesterday_word,today_link,yesterday_link]
 #print(date_list)
 
 ## Headers is used because a User-Agemt was required by the website

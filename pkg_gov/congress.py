@@ -21,15 +21,11 @@ two_ago = date.today() - timedelta(2)
 
 today_new = today.strftime("%m/%d/%Y")
 yesterday_new = yesterday.strftime("%m/%d/%Y")
-two_ago_new = two_ago.strftime("%m/%d/%Y")
-
 today_word = today.strftime("%B %d, %Y")
 today_word_single_digit_day = today.strftime("%B %d, %Y").replace(" 0", " ")
 yesterday_word = yesterday.strftime("%B %d, %Y")
 yesterday_word_single_digit_day = yesterday.strftime("%B %d, %Y").replace(" 0", " ")
-two_ago_word = two_ago.strftime("%B %d, %Y")
-two_ago_word_single_digit_day = two_ago.strftime("%B %d, %Y").replace(" 0", " ")
-date_list = [today_new,yesterday_new,two_ago_new,today_word,yesterday_word,two_ago_word,today_word_single_digit_day,yesterday_word_single_digit_day,two_ago_word_single_digit_day]    
+date_list = [today_new,yesterday_new,today_word,yesterday_word,today_word_single_digit_day,yesterday_word_single_digit_day]    
 #print(date_list)
 
 ## Test that you're pulling the right object

@@ -21,9 +21,7 @@ today_word = today.strftime("%B %d, %Y").upper()
 today_word_single_digit_day = today.strftime("%B %d, %Y").replace(" 0", " ").upper()
 yesterday_word = yesterday.strftime("%B %d, %Y").upper()
 yesterday_word_single_digit_day = yesterday.strftime("%B %d, %Y").replace(" 0", " ").upper()
-two_ago_word = two_ago.strftime("%B %d, %Y").upper()
-two_ago_word_single_digit_day = two_ago.strftime("%B %d, %Y").replace(" 0", " ").upper()
-date_list = [today_word,yesterday_word,two_ago_word,today_word_single_digit_day,yesterday_word_single_digit_day,two_ago_word_single_digit_day]    
+date_list = [today_word,yesterday_word,today_word_single_digit_day,yesterday_word_single_digit_day]    
 #print(date_list)
 ## Test that you're pulling the right object
 #articles =  driver.find_elements(By.XPATH,'//div[@class="listing-with-preview item explore-item"]')

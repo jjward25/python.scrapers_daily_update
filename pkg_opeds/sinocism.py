@@ -8,12 +8,10 @@ import requests
 ## General templates to pull from, not all are always used.
 today = date.today()
 yesterday = date.today() - timedelta(1)
-two_ago = date.today() - timedelta(2)
 today_word = today.strftime("%B %d, %Y")
 yesterday_word = yesterday.strftime("%B %d, %Y")
-two_ago_word = two_ago.strftime("%B %d, %Y")
 today_link = today.strftime("%Y/%m/%d/")
-date_list = [today_word,yesterday_word,two_ago_word]
+date_list = [today_word,yesterday_word]
 
 ## Headers is used because a User-Agemt was required by the website
 headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46'}

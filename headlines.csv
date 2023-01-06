@@ -1,16 +1,16 @@
 type,source,title,link,Notes,date
-Headline,AP Politics,"Speaker fight, Day 4: McCarthy sees progress, no deal yet",https://www.apnews.com/article/politics-united-states-house-of-representatives-kevin-mccarthy-us-republican-party-0938c7358f41c83759246f8949ac7c15,notes,idate
+Headline,AP Politics,McCarthy nears victory for speaker after grueling fight,https://www.apnews.com/article/politics-united-states-house-of-representatives-kevin-mccarthy-us-republican-party-0938c7358f41c83759246f8949ac7c15,notes,idate
 Headline,AP Politics,"2 years after Jan. 6, speaker scrap freezes Congress again",https://www.apnews.com/article/jan6-capitol-riots-second-anniversary-8014969520b61bf7f4d86689fc16e7f7,notes,idate
 Headline,AP Politics,EPA moves to toughen standards for deadly soot pollution,https://www.apnews.com/article/wildfires-climate-and-environment-pollution-fresno-us-environmental-protection-agency-6adbf4d1a2879530089b35a260ade6fe,notes,idate
 Headline,AP Politics,South Carolina US House district ruled racial gerrymander,https://www.apnews.com/article/politics-south-carolina-state-government-hilton-head-island-charleston-9f48c6c7668b7b9404a7a9335d3a195a,notes,idate
 Headline,AP Politics,California’s Newsom to launch 2nd term with contrast to GOP,https://www.apnews.com/article/biden-politics-california-gavin-newsom-sacramento-91abbc21ec3a41e13c8b654058e22398,notes,idate
 Headline,AP Politics,"Biden toughens border, offers legal path for 30,000 a month",https://www.apnews.com/article/politics-mexico-immigration-af0643a4fb8f45388fe247e44c9b2c5e,notes,idate
-Headline,AP Politics,Ex-lawmaker’s final vote questioned after move from Vegas,https://www.apnews.com/article/politics-las-vegas-nevada-california-6ce78b413889d79041c1281f80110346,notes,idate
-Headline,AP Politics,3 GOP Indiana governor hopefuls all have millions in bank,https://www.apnews.com/article/politics-indiana-eric-holcomb-909b78c74504b93f9bae4ca7d05ea7bb,notes,idate
+Headline,AP Politics,Ex-lawmaker who served time for Jan. 6 riot seeks House seat,https://www.apnews.com/article/politics-united-states-government-west-virginia-state-riots-9f62fe064158d9641fbe40100bd15300,notes,idate
+Headline,AP Politics,Kremlin-ordered truce is uncertain amid mutual mistrust,https://www.apnews.com/article/russia-ukraine-war-kremlin-ordered-truce-650d6c7930c80e61763a672d05757da8,notes,idate
 Headline,AP US,"2 years after Jan. 6, speaker scrap freezes Congress again",https://www.apnews.com/article/jan6-capitol-riots-second-anniversary-8014969520b61bf7f4d86689fc16e7f7,notes,idate
 Headline,AP US,Cubans crossing into US stunned to hear of new asylum limits,https://www.apnews.com/article/biden-politics-mexico-united-states-government-70f9516a689fa26a41af184ec76e9527,notes,idate
 Headline,AP US,"Democratic officials’ homes, offices shot up in New Mexico",https://www.apnews.com/article/politics-albuquerque-new-mexico-state-government-831e1d985a1795eea69ac6489f0698ed,notes,idate
-Headline,AP US,‘Real Housewives of Salt Lake City’ member gets 6 1/2 years,https://www.apnews.com/article/fraud-park-city-7b2be37b6ef11f380077726c919ec9ef,notes,idate
+Headline,AP US,Jen Shah of ‘Real Housewives’ gets 6 1/2-year prison term,https://www.apnews.com/article/fraud-park-city-7b2be37b6ef11f380077726c919ec9ef,notes,idate
 Headline,AP US,Border bishop takes lead role in Catholic migrant ministry,https://www.apnews.com/article/religion-el-paso-mexico-immigration-shelters-c6a8684760041691c68b4c6b3274db96,notes,idate
 Headline,AP US,"As speaker bid falters, mixed views of McCarthy in hometown",https://www.apnews.com/article/politics-bakersfield-california-kevin-mccarthy-congress-5e355091d9f308b1b93a9faaec610d5a,notes,idate
 Headline,AP US,Warning about aquifer’s decline sets up big fight in Kansas,https://www.apnews.com/article/politics-kansas-business-climate-and-environment-51bd4d855972c192e2c3d0187abb5f1e,notes,idate
@@ -23,7 +23,8 @@ Headline,AP World,Kremlin-ordered truce is uncertain amid mutual mistrust,https:
 Headline,AP World,"Harry’s claim he killed 25 in Afghanistan draws anger, worry",https://www.apnews.com/article/prince-harry-afghanistan-service-claims-1c497d35a8211dc0366429856a539e2a,notes,idate
 Headline,AP World,South Sudan union says journalists detained over viral video,https://www.apnews.com/article/politics-south-sudan-government-3b5dd2a04c0dd11cf0f0098f24278ce8,notes,idate
 Headline,AP World,Romania seizes more cars in Tate case; court next week,https://www.apnews.com/article/romania-government-bucharest-business-crime-3458065c0350ec217a21c627f725272c,notes,idate
-Headline,NYT Selenium,"No Deal Yet on Speaker, McCarthy Tells G.O.P.; House Votes for 12th Time",https://www.nytimes.com/live/2023/01/06/us/house-speaker-vote-mccarthy,,idate
+Headline,NYT Selenium,McCarthy Loses 12th Vote for Speaker but Gains Supporters,https://www.nytimes.com/live/2023/01/06/us/house-speaker-vote-mccarthy,,idate
+Headline,NYT Selenium,14 G.O.P. Holdouts Vote for Him After His Concessions,https://www.nytimes.com/live/2023/01/06/us/house-speaker-vote-mccarthy,,idate
 Headline,NYT Selenium,Analysis: Kevin McCarthy is letting the far right disrupt the House — and hold him hostage to their demands.,https://www.nytimes.com/2023/01/06/us/politics/mccarthy-house-speaker-republicans.html,,idate
 Headline,NYT Selenium,We’re tracking every lawmaker’s vote here.,https://www.nytimes.com/interactive/2023/01/04/us/politics/house-speaker-vote-tally.html,,idate
 Headline,NYT Selenium,,https://www.nytimes.com/live/2023/01/06/business/jobs-report-december-economy,,idate
@@ -59,6 +60,10 @@ Headline,NYT Selenium,,https://theathletic.com/4046216/2023/01/06/colts-jim-irsa
 Headline,NYT Selenium,,https://theathletic.com/4061905/2023/01/05/texas-chris-beard-firing/,,idate
 Headline,NYT Selenium,,https://theathletic.com/4060678/2023/01/06/ottawa-senators-sale-new-ownership/,,idate
 Headline,NYT Selenium,,https://theathletic.com/4060678/2023/01/06/ottawa-senators-sale-new-ownership/,,idate
+Headline,Politico,"Global food prices in 2022 hit record high amid drought, war",https://subscriber.politicopro.com/eenews/article/eenews/2023/01/06/global-food-prices-in-2022-hit-record-high-amid-drought-war-00076767,"With critical Black Sea supplies disrupted by Russia's invasion of Ukraine, food prices rose to record highs in 2022, increasing inflation, poverty and food insecurity in developing nations. The war also jolted energy markets and fertilizer supplies.
+",01/06/23 01:13 PM EST
+Headline,Politico,"East Greenwich mayor slams Durr, considers Republican primary challenge in LD-3",https://subscriber.politicopro.com/article/2023/01/republican-mayor-slams-durr-considers-primary-challenge-00076777,"Mayor Dale Archer offered scathing words about state Sen. Ed Durr and Gloucester County Republican Chair Jacci Vigilante. 
+",01/06/23 12:53 PM EST
 Headline,Politico,Miami Democrats face internal feud after disastrous 2022 midterms,https://subscriber.politicopro.com/article/2023/01/miami-democrats-face-internal-feud-after-disastrous-2022-midterms-00076758,"Ten of county party's 257 officials calling for statewide party to conduct an audit.
 ",01/06/23 12:17 PM EST
 Headline,Politico,Decision day for lecanemab,https://www.politico.com/newsletters/prescription-pulse/2023/01/06/decision-day-for-lecanemab-00076660,"Should lecanemab receive a green light from the FDA, it would be the second new Alzheimer’s therapy to come to market in two years.
@@ -89,9 +94,6 @@ Headline,Politico,EPA proposes tighter rule to cut soot pollution,https://subscr
 ",01/06/23 10:01 AM EST
 Headline,Politico,EPA tiptoes to tighter soot standards,https://subscriber.politicopro.com/eenews/article/eenews/2023/01/06/epa-tiptoes-to-tighter-soot-standards-00076561,"Though the annual standard would be strengthened, the proposal leaves the daily limit unchanged, running counter to the recommendations of expert agency advisers.
 ",01/06/23 10:00 AM EST
-Headline,Politico,Is the new Omicron subvariant cause for concern?,https://www.politico.com/newsletters/politico-pulse/2023/01/06/is-the-new-omicron-subvariant-cause-for-concern-00076705,"Pulse spoke with two infectious disease experts about what XBB.1.5 means for the country and how we got here.
-",01/06/23 10:00 AM EST
-Headline,Politico,"3 amigos, 11 ballots, nothing spared",https://www.politico.com/newsletters/global-insider/2023/01/06/3-amigos-11-ballots-nothing-spared-00076727,,01/06/23 09:30 AM EST
 Headline,Reuters Breaking,Chip woes short-circuit Samsung's best laid plans,https://www.reuters.com/breakingviews/,notes,3:31 AM UTC
 Headline,Reuters Breaking,India’s Vodafone stress test may have ugly results,https://www.reuters.com/breakingviews/,notes,3:22 AM UTC
 Headline,Reuters Breaking,Crypto bank run vindicates watchdogs’ vigilance,https://www.reuters.com/breakingviews/,notes,"January 5, 2023"
@@ -104,11 +106,11 @@ Headline,Reuters Legal,Law firm Goodwin Procter cuts lawyers and staff amid shri
 Headline,Reuters Legal,Former U.S. Senator Burr says SEC has closed probe concerning him without action,https://www.reuters.com/world/,notes,4:08 PM UTC
 Headline,Reuters Legal,S. Carolina court nixes 6-week abortion ban; Idaho judges uphold restrictions,https://www.reuters.com/world/,notes,12:41 AM UTC
 Headline,Reuters Legal,Twitter hires law firm denounced by CEO Elon Musk,https://www.reuters.com/tags/technology/,notes,"January 5, 2023"
-Headline,Reuters World,"At least 29 killed in Mexico capture of Chapo's son; U.S. extradition not guaranteed, article with imageAmericascategory · January 6, 2023 · 5:05 PM UTC · undefined agoNineteen suspected gang members and 10 military personnel were killed in a wave of violence surrounding the arrest of Mexican drug cartel boss Ovidio Guzman in the northern state of Sinaloa, Defense Minister Luis Cresencio Sandoval said on Friday.",https://www.reuters.comNone,notes,idate
+Headline,Reuters World,"At least 29 killed in Mexico capture of Chapo's son; U.S. extradition not guaranteed, article with imageAmericascategory · January 6, 2023 · 5:05 PM UTCNineteen suspected gang members and 10 military personnel were killed in a wave of violence surrounding the arrest of Mexican drug cartel boss Ovidio Guzman in the northern state of Sinaloa.",https://www.reuters.comNone,notes,idate
 Headline,Reuters World,"United StatescategoryU.S. House brawl over McCarthy raises worries about Republican governance, article with image11:07 AM UTC",https://www.reuters.comNone,notes,idate
 Headline,Reuters World,"EuropecategoryExclusive: Russian hackers targeted U.S. nuclear scientists, article with image4:47 PM UTC",https://www.reuters.comNone,notes,idate
-Headline,Reuters World,"GalleryAmericascategory'We threw ourselves to the floor': Mexican passenger plane caught in cartel crossfire, article with gallery5:54 AM UTC",https://www.reuters.comNone,notes,idate
+Headline,Reuters World,"GalleryUnited StatescategoryRepublican McCarthy gains support in 12th U.S. House leadership vote, article with gallery6:15 PM UTC . Updated undefined ago",https://www.reuters.comNone,notes,idate
+Headline,Reuters World,"GalleryEuropecategoryShells fly at Ukraine front despite Russia's claimed Christmas ceasefire, article with gallery4:57 PM UTC",https://www.reuters.comNone,notes,idate
 Headline,Reuters World,"GalleryAmericascategoryMexico captures son of 'El Chapo' sparking wave of violence, article with gallery8:37 AM UTC",https://www.reuters.comNone,notes,idate
-Headline,Reuters World,"GalleryEuropecategoryShells fly at Ukraine front despite Russia's claimed Christmas ceasefire, article with gallery4:57 PM UTC . Updated undefined ago",https://www.reuters.comNone,notes,idate
-Headline,Reuters World,"United StatescategoryMcCarthy predicts progress with Republicans in U.S. House leadership standoff, article with image5:25 PM UTC . Updated undefined ago",https://www.reuters.comNone,notes,idate
-Headline,Reuters World,"GalleryAmericascategoryMexican cartel leader dies in shootout after mass jail break, article with galleryJanuary 5, 2023",https://www.reuters.comNone,notes,idate
+Headline,Reuters World,"GalleryAmericascategory'We threw ourselves to the floor': Mexican passenger plane caught in cartel crossfire, article with gallery5:54 AM UTC",https://www.reuters.comNone,notes,idate
+Headline,Reuters World,"GalleryEuropecategoryOld Nazi map sparks treasure hunt in the Netherlands, article with gallery11:27 AM UTC",https://www.reuters.comNone,notes,idate

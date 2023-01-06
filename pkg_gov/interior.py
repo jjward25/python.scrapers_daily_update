@@ -8,18 +8,14 @@ import requests
 ## General templates to pull from, not all are always used.
 today = date.today()
 yesterday = date.today() - timedelta(1)
-two_ago = date.today() - timedelta(2)
 today_word = today.strftime("%B %d, %Y")
 today_word_single_digit_day = today.strftime("%B %d, %Y").replace(" 0", " ")
 yesterday_word = yesterday.strftime("%B %d, %Y")
 yesterday_word_single_digit_day = yesterday.strftime("%B %d, %Y").replace(" 0", " ")
-two_ago_word = two_ago.strftime("%B %d, %Y")
-two_ago_word_single_digit_day = two_ago.strftime("%B %d, %Y").replace(" 0", " ")
 today_new = today.strftime("%m/%d/%Y").replace('2023','9999').replace("0", "").replace('9999','2023')
 yesterday_new = yesterday.strftime("%m/%d/%Y").replace('2023','9999').replace("0", "").replace('9999','2023')
-two_ago_new = two_ago.strftime("%m/%d/%Y").replace('2023','9999').replace("0", "").replace('9999','2023')
-date_list = [today_new,yesterday_new,two_ago_new,today_word,yesterday_word,two_ago_word,today_word_single_digit_day,yesterday_word_single_digit_day,two_ago_word_single_digit_day]
-print(date_list)
+date_list = [today_new,yesterday_new,today_word,yesterday_word,today_word_single_digit_day,yesterday_word_single_digit_day]
+#print(date_list)
 ## Headers is used because a User-Agent was required by the website
 headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46'}
 link = "https://www.doi.gov/news"

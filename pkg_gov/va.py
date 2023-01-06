@@ -17,13 +17,7 @@ yesterday_hypens = yesterday.strftime("%Y-%m-%d")
 yesterday_word = yesterday.strftime("%B %dth, %Y").replace('2023','9999').replace("0", "").replace('9999','2023')
 yesterday_word_single_digit_day = yesterday.strftime("%B %d, %Y").replace(" 0", " ")
 
-two_ago = date.today() - timedelta(2)
-two_ago_hypens = two_ago.strftime("%Y-%m-%d")
-#two_ago_word = two_ago.strftime("%B %d, %Y")
-two_ago_word = two_ago.strftime("%B %dth, %Y").replace('2023','9999').replace("0", "").replace('9999','2023')
-two_ago_word_single_digit_day = two_ago.strftime("%B %d, %Y").replace(" 0", " ")
-
-date_list = [today_hyphens,yesterday_hypens,two_ago_hypens,today_word,yesterday_word,two_ago_word,today_word_single_digit_day,yesterday_word_single_digit_day,two_ago_word_single_digit_day]
+date_list = [today_hyphens,yesterday_hypens,today_word,yesterday_word,today_word_single_digit_day,yesterday_word_single_digit_day]
 #print(date_list)
 year = today.strftime("%Y")
 month = today.strftime("%m")

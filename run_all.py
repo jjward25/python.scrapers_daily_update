@@ -9,7 +9,7 @@ from run_stembiz import *
 
 path = './'
 all_files = glob.glob(os.path.join(path, "*.csv"))
-writer = pd.ExcelWriter('out.xlsx', engine='xlsxwriter')
+writer = pd.ExcelWriter('daily_update.xlsx', engine='xlsxwriter')
 
 for f in all_files:
     df = pd.read_csv(f)
@@ -17,4 +17,4 @@ for f in all_files:
 
 writer.close()
 
-os.system("start EXCEL.EXE out.xlsx")
+os.system("start EXCEL.EXE daily_update.xlsx")
